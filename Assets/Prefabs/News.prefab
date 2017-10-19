@@ -75,7 +75,8 @@ GameObject:
   - component: {fileID: 33086109328955644}
   - component: {fileID: 64219945630857714}
   - component: {fileID: 23262043934137412}
-  - component: {fileID: 114651301230780638}
+  - component: {fileID: 114325181981730280}
+  - component: {fileID: 114948332918760444}
   m_Layer: 0
   m_Name: Browser
   m_TagString: Untagged
@@ -264,8 +265,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f95d493dfffd544a8f43a033ae4523f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _browser: {fileID: 114651301230780638}
+  _browser: {fileID: 114325181981730280}
   _thumbnail: {fileID: 114736174445556644}
+--- !u!114 &114325181981730280
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1667116433180584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35bf0bd4ded61a34f9be34f6738e4010, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _url: 
+  _width: 1980
+  _height: 1080
+  generateMipmap: 0
+  backgroundColor:
+    serializedVersion: 2
+    rgba: 0
+  _zoom: 0
+  allowContextMenuOn: 0
+  newWindowAction: 1
 --- !u!114 &114327672995615632
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -369,27 +391,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15285fcc231e6e643a8466d41d53a096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114651301230780638
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1667116433180584}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35bf0bd4ded61a34f9be34f6738e4010, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _url: 
-  _width: 1980
-  _height: 1080
-  generateMipmap: 0
-  backgroundColor:
-    serializedVersion: 2
-    rgba: 0
-  _zoom: 0
-  allowContextMenuOn: 0
-  newWindowAction: 1
 --- !u!114 &114736174445556644
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -399,6 +400,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8f9dcb1d4687adb44a53f43e3fdec855, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114948332918760444
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1667116433180584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd51d0a6807240a4fa6f82e0cb9e2fb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!222 &222543033855552274

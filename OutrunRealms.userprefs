@@ -1,13 +1,15 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj" RefactoringSettings.EnableRefactorings="True">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\OvrAvatar\Scripts\OvrAvatarHand.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\BrowserControllerInput.cs">
     <Files>
-      <File FileName="Assets\OvrAvatar\Scripts\OvrAvatarTouchController.cs" Line="1" Column="1" />
-      <File FileName="Assets\OvrAvatar\Scripts\OvrAvatarHand.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\OutrunRealmSettings.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\NewsView.cs" Line="40" Column="2" />
-      <File FileName="Assets\Scripts\InteractiveItem.cs" Line="10" Column="29" />
-      <File FileName="Assets\Scripts\NewsThumbnail.cs" Line="30" Column="16" />
+      <File FileName="Assets\Scripts\NewsView.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\InteractiveItem.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\NewsThumbnail.cs" Line="1" Column="1" />
+      <File FileName="Assets\BrowserControllerInput.cs" Line="21" Column="29" />
+      <File FileName="Assets\ZFBrowser\Scripts\BrowserUI\IBrowserUI.cs" Line="15" Column="1" />
+      <File FileName="Assets\ZFBrowser\Scripts\BrowserInput.cs" Line="1" Column="1" />
+      <File FileName="Assets\ZFBrowser\Scripts\Browser.cs" Line="232" Column="46" />
+      <File FileName="Assets\ZFBrowser\Scripts\BrowserUI\ClickMeshBrowserUI.cs" Line="57" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
