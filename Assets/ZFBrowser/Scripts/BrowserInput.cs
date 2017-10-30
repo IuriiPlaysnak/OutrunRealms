@@ -25,8 +25,6 @@ internal class BrowserInput {
 
 	public void HandleInput() {
 
-			Debug.Log ("BrowserInput");
-
 		browser.UIHandler.InputUpdate();
 
 //			HandleControllerInput ();
