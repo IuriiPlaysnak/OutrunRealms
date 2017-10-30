@@ -34,13 +34,20 @@ public class OutrunRealmSettings : MonoBehaviour {
 		WWW request = new WWW (url);
 		yield return request;
 
-		Debug.Log ("Settings loading complete!");
+		if (request.error != null) {
 
-		_settingsData = JsonUtility.FromJson<SettingData> (request.text);
-		_isLoadingComplete = true;
+			Debug.LogError (request.error);
 
-		if (OnLoadingComplete != null)
-			OnLoadingComplete ();
+		} else {
+
+			Debug.Log ("Settings loading complete!");
+
+			_settingsData = JsonUtility.FromJson<SettingData> (request.text);
+			_isLoadingComplete = true;
+
+			if (OnLoadingComplete != null)
+				OnLoadingComplete ();
+		}
 	}
 
 	static public bool isLoadingComlete {
