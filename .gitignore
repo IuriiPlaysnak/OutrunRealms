@@ -4,3 +4,5 @@ Temp/
 *.sln
 obj/
 *.unityproj
+Assets/CurvedUI/
+Assets/GameSparks/
