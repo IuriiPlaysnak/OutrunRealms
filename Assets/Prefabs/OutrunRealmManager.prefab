@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4359729211325324}
   - component: {fileID: 114804163321027876}
   m_Layer: 0
-  m_Name: OutrunRealmSettings
+  m_Name: OutrunRealmManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

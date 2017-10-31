@@ -29,7 +29,7 @@ public class OvrAvatarHand : MonoBehaviour
 		if (_lineRender.enabled == false)
 			return;
 
-		if (OVRInput.GetDown (_actionButton)) {
+		if (OVRInput.GetUp (_actionButton)) {
 
 			Ray ray = new Ray (transform.position, transform.forward);
 			RaycastHit hit;
@@ -42,7 +42,7 @@ public class OvrAvatarHand : MonoBehaviour
 			}
 		}
 
-		if (OVRInput.GetDown (_cancelButton)) {
+		if (OVRInput.GetUp (_cancelButton)) {
 
 			Ray ray = new Ray (transform.position, transform.forward);
 			RaycastHit hit;

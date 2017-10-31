@@ -30,11 +30,12 @@ internal class BrowserControllerInput : MonoBehaviour {
 			HandleControllerInput ();
 	}
 
-	private MouseButton prevButtons = 0;
-	private Vector2 prevPos;
 
 	[SerializeField]
 	private int _scrollSpeed = 100;
+
+	private Vector2 _prevCursorPosition;
+	private Vector3 _localHitPointShift = new Vector3 (5f, 0f, 5f);
 
 	private void HandleControllerInput() {
 
@@ -51,16 +52,18 @@ internal class BrowserControllerInput : MonoBehaviour {
 		mouseScroll += OVRInput.Get (OVRInput.Axis2D.PrimaryThumbstick);
 		mouseScroll += OVRInput.Get (OVRInput.Axis2D.SecondaryThumbstick);
 
-		Vector2 mousePos = hit.point.normalized;
+		Vector2 currentCursorPosition = hit.point.normalized;
 
 		Vector3 localHitPoint = hit.collider.transform.InverseTransformPoint (hit.point);
-		Vector3 shiftedHitPoint = localHitPoint + hit.collider.bounds.extents;
-		Vector2 hitPoint = new Vector2 (shiftedHitPoint.x, shiftedHitPoint.y);
-		mousePos.x = hitPoint.x / hit.collider.bounds.size.x;
-		mousePos.y = hitPoint.y / hit.collider.bounds.size.y;
+		Vector3 shiftedHitPoint = localHitPoint;
+		shiftedHitPoint.x = _localHitPointShift.x - shiftedHitPoint.x;
+		shiftedHitPoint.z = shiftedHitPoint.z + _localHitPointShift.z;
 
-		if (mousePos != prevPos) {
-			BrowserNative.zfb_mouseMove(_browser.browserId, mousePos.x, 1 - mousePos.y);
+		currentCursorPosition.x = shiftedHitPoint.x / 10f;
+		currentCursorPosition.y = shiftedHitPoint.z / 10f;
+
+		if (currentCursorPosition != _prevCursorPosition) {
+			BrowserNative.zfb_mouseMove(_browser.browserId, currentCursorPosition.x, currentCursorPosition.y);
 		}
 
 		if (mouseScroll.sqrMagnitude != 0) {
@@ -92,6 +95,6 @@ internal class BrowserControllerInput : MonoBehaviour {
 			);
 		}
 			
-		prevPos = mousePos;
+		_prevCursorPosition = currentCursorPosition;
 	}
 }

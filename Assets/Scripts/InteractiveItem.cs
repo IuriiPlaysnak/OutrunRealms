@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-[RequireComponent (typeof(BoxCollider))]
+[RequireComponent (typeof(Collider))]
 
 public class InteractiveItem : MonoBehaviour {
 

@@ -83,10 +83,27 @@ public class OutrunRealmDataProvider : MonoBehaviour {
 		get { return _instance._settingsData.newsData; }
 	}
 
+	static public GalleryData galleryData {
+		get { return _instance._settingsData.galleryData; }
+	}
+
 	[System.Serializable]
 	public struct SettingData {
 
 		public NewsData newsData;
+		public GalleryData galleryData;
+	}
+
+	public struct GalleryData {
+
+		public string title;
+		public string thumbnailImageURL;
+		public List<string> images;
+
+		public override string ToString ()
+		{
+			return string.Format ("[GalleryData]: title = {0}, image = {1}", title, thumbnailImageURL);
+		}
 	}
 
 	[System.Serializable]

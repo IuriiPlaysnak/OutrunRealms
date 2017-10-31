@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class NewsThumbnail : OutrunRealmThumbnail {
+public class OutrunNewsThumbnail : OutrunRealmThumbnail {
 
 	protected override void OnDataLoaded ()
 	{

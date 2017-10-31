@@ -62,6 +62,7 @@ public class OutrunRealmHTMLDataSource : IOutrunRealmDataSource {
 
 		OutrunRealmDataProvider.SettingData result = new OutrunRealmDataProvider.SettingData ();
 		result.newsData = _posts [0];
+		result.galleryData = _galleries [0];
 
 		if (OnLoadingComplete != null)
 			OnLoadingComplete (result);
@@ -73,13 +74,23 @@ public class OutrunRealmHTMLDataSource : IOutrunRealmDataSource {
 	private const string BLOG_LINK_CLASS = "WVR-link";
 	private const string GALLERY_CLASS = "WVR-gallery";
 
+	private List<OutrunRealmDataProvider.GalleryData> _galleries;
 	private void ParseGallery(XElement gallery) {
+
+		_galleries = new List<OutrunRealmDataProvider.GalleryData> ();
+		OutrunRealmDataProvider.GalleryData data = new OutrunRealmDataProvider.GalleryData ();
+		data.title = "Gallery";
+		data.images = new List<string> ();
 
 		gallery
 			.Descendants ()
 			.Where (n => n.Name == "img")
 			.ToList ()
-			.ForEach (n => Debug.Log (n.Attribute("src").Value));
+			.ForEach (n => data.images.Add(n.Attribute("src").Value));
+
+		data.thumbnailImageURL = data.images [0];
+
+		_galleries.Add (data);
 	}
 
 
