@@ -1,18 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using System.Xml;
 using System.Xml.Linq;
 using System.Linq;
+using UnityEngine;
+using System;
 
-public class OutrunRealmHTMLParser : MonoBehaviour {
+public class OutrunRealmHTMLDataSource : IOutrunRealmDataSource {
+	
+	#region IOutrunRealmDataSource implementation
 
-	void Start () {
+	public event Action<OutrunRealmDataProvider.SettingData> OnLoadingComplete;
 
-		Debug.Log ("BlogHTMLParser");
-		StartCoroutine("DownloadHTML", "http://localhost:8080/html/index.html");
+	public void Load (string url)
+	{
+		Debug.Log ("OutrunRealmHTMLDataSource");
+
+		OutrunRealmDataProvider.instance.StartCoroutine(DownloadHTML(url));
 	}
-		
+
+	#endregion
+
 	private IEnumerator DownloadHTML(string link) {
 
 		Debug.Log ("Loading...");
@@ -33,23 +41,7 @@ public class OutrunRealmHTMLParser : MonoBehaviour {
 
 	private void ParseHTML(string text) {
 
-//		string path = System.Environment.GetFolderPath (System.Environment.SpecialFolder.MyDocuments) + @"\text.txt";
-//		File.WriteAllText (path, text);
-
-		/*
-		XmlDocument doc = new XmlDocument ();
-		doc.PreserveWhitespace = true;
-		doc.LoadXml (text);
-		ParseBlogPosts(doc.SelectNodes("/html/body/*[@class='WVR-blogpost']"));
-		*/
-
-//		XmlDocument doc = new XmlDocument ();
-//		doc.PreserveWhitespace = true;
-//		doc.LoadXml (text);
-//
-//		XDocument xdoc = XDocument.Parse (doc.SelectNodes("/html/body")[0].OuterXml);
-
-		text = text.Replace ("<!DOCTYPE html>", "");
+		text = text.Replace ("<!DOCTYPE html>", string.Empty);
 
 		XDocument xdoc = XDocument.Parse (text);
 		var nodes = xdoc
@@ -67,6 +59,12 @@ public class OutrunRealmHTMLParser : MonoBehaviour {
 			.Where (node => node.Attribute ("class").Value == GALLERY_CLASS)
 			.ToList ()
 			.ForEach (gallery => ParseGallery(gallery));
+
+		OutrunRealmDataProvider.SettingData result = new OutrunRealmDataProvider.SettingData ();
+		result.newsData = _posts [0];
+
+		if (OnLoadingComplete != null)
+			OnLoadingComplete (result);
 	}
 
 	private const string BLOG_POST_CLASS = "WVR-blogpost";
@@ -84,16 +82,21 @@ public class OutrunRealmHTMLParser : MonoBehaviour {
 			.ForEach (n => Debug.Log (n.Attribute("src").Value));
 	}
 
+
+	private List<OutrunRealmDataProvider.NewsData> _posts;
 	private void ParseBlogPost(XElement post) {
+
+		if (_posts == null)
+			_posts = new List<OutrunRealmDataProvider.NewsData> ();
 
 		var nodes = post
 			.Descendants()
 			.Where (node => node.Attribute ("class") != null)
 			;
 
-		Blogpost postData = new Blogpost();
+		OutrunRealmDataProvider.NewsData postData = new OutrunRealmDataProvider.NewsData();
 
-		postData.header = 
+		postData.title = 
 			nodes
 				.Where (node => node.Attribute ("class").Value == BLOG_HEADER_CLASS)
 				.Select (node => node.Value)
@@ -114,18 +117,18 @@ public class OutrunRealmHTMLParser : MonoBehaviour {
 				.FirstOrDefault()
 				;
 
-		Debug.Log (postData);
+		_posts.Add(postData);
 	}
 
-	public struct Blogpost
-	{
-		public string header;
-		public string imageURL;
-		public string link;
-
-		public override string ToString ()
-		{
-			return string.Format ("[Blogpost]: header = {0}, img = {1}, link = {2}", header, imageURL, link);
-		}
-	}
+//	public struct Blogpost
+//	{
+//		public string header;
+//		public string imageURL;
+//		public string link;
+//
+//		public override string ToString ()
+//		{
+//			return string.Format ("[Blogpost]: header = {0}, img = {1}, link = {2}", header, imageURL, link);
+//		}
+//	}
 }

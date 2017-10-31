@@ -76,12 +76,12 @@ public class NewsView : MonoBehaviour {
 
 	private void OnThumbnailClicked() {
 
-		if (OutrunRealmSettings.isLoadingComlete == false)
+		if (OutrunRealmDataProvider.isLoadingComlete == false)
 			return;
 
 		_viewMode = ViewMode.BROWSER;
 
-		_browser.LoadURL (OutrunRealmSettings.newsData.link, true);
+		_browser.LoadURL (OutrunRealmDataProvider.newsData.link, true);
 
 		_browserGO.SetActive (true);
 		_thumbnailGO.SetActive (false);
