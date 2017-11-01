@@ -5,13 +5,18 @@ using UnityEngine.UI;
 
 public class OutrunGallery : MonoBehaviour {
 
-	private Image _image;
+	[SerializeField]
+	private Image _display;
+
+	[SerializeField]
+	private Text _countTextField;
+
 	private List<string> _imagesURLs;
 
 	void Awake() {
 
-		_image = gameObject.GetComponentInChildren<Image> ();
-		Debug.Assert (_image != null, "Image not found");
+		Debug.Assert (_display != null, "Image not found");
+		Debug.Assert (_countTextField != null, "Text not found");
 	}
 
 	public void SetImages(List<string> imagesURLs) {
@@ -29,8 +34,6 @@ public class OutrunGallery : MonoBehaviour {
 
 	public void PrevImage() {
 
-		Debug.Log ("prev");
-
 		_currentImage--;
 		if (_currentImage < 0)
 			_currentImage = _imagesURLs.Count - 1;
@@ -39,8 +42,6 @@ public class OutrunGallery : MonoBehaviour {
 	}
 
 	public void NextImage() {
-
-		Debug.Log ("next");
 
 		_currentImage++;
 		if (_currentImage > _imagesURLs.Count - 1)
@@ -51,25 +52,20 @@ public class OutrunGallery : MonoBehaviour {
 
 	private void LoadImage(string url) {
 
-		StartCoroutine (LoadImageCoroutine (url));
+		_countTextField.text = string.Format ("{0} / {1}", _currentImage + 1, _imagesURLs.Count);
+
+		ResourceManager.OnImageLoadingComplete += OnImageLoaded;
+		ResourceManager.LoadImage (url);
 	}
 
-	private IEnumerator LoadImageCoroutine(string url) {
+	void OnImageLoaded (Texture2D texture)
+	{
+		ResourceManager.OnImageLoadingComplete -= OnImageLoaded;
 
-		WWW request = new WWW (url);
-
-		while(request.isDone == false) {
-
-			Debug.Log (string.Format ("Image loading: {0}", request.progress));
-			yield return request;
-		}
-
-		Debug.Log (string.Format ("Image loading: {0}", request.progress));
-
-		_image.sprite = Sprite.Create(
-			request.texture
-			, new Rect(0, 0, request.texture.width, request.texture.height)
-			, Vector2.zero
-		);
+		_display.sprite = Sprite.Create(
+				texture
+				, new Rect(0, 0, texture.width, texture.height)
+				, Vector2.zero
+			);
 	}
 }

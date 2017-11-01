@@ -42,6 +42,7 @@ public class OutrunRealmHTMLDataSource : IOutrunRealmDataSource {
 	private void ParseHTML(string text) {
 
 		text = text.Replace ("<!DOCTYPE html>", string.Empty);
+		text = System.Text.RegularExpressions.Regex.Replace(text, "\\&[a-z]{1,5};", string.Empty);
 
 		XDocument xdoc = XDocument.Parse (text);
 		var nodes = xdoc
@@ -79,7 +80,8 @@ public class OutrunRealmHTMLDataSource : IOutrunRealmDataSource {
 
 		_galleries = new List<OutrunRealmDataProvider.GalleryData> ();
 		OutrunRealmDataProvider.GalleryData data = new OutrunRealmDataProvider.GalleryData ();
-		data.title = "Gallery";
+		data.title = gallery.Attribute("data-title").Value ?? "No title";
+
 		data.images = new List<string> ();
 
 		gallery
@@ -87,8 +89,8 @@ public class OutrunRealmHTMLDataSource : IOutrunRealmDataSource {
 			.Where (n => n.Name == "img")
 			.ToList ()
 			.ForEach (n => data.images.Add(n.Attribute("src").Value));
-
-		data.thumbnailImageURL = data.images [0];
+		
+		data.thumbnailImageURL = gallery.Attribute("data-thumbnail").Value ?? data.images [0];
 
 		_galleries.Add (data);
 	}

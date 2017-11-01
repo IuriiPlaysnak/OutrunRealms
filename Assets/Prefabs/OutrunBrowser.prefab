@@ -25,13 +25,14 @@ GameObject:
   - component: {fileID: 114307826404411522}
   - component: {fileID: 114082878823619594}
   - component: {fileID: 114187826027541150}
+  - component: {fileID: 114323485402137372}
   m_Layer: 0
   m_Name: OutrunBrowser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4815336524628518
 Transform:
   m_ObjectHideFlags: 1
@@ -142,3 +143,14 @@ MonoBehaviour:
   _zoom: 0
   allowContextMenuOn: 0
   newWindowAction: 1
+--- !u!114 &114323485402137372
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1335054169275446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0952ea61548c3f44b1b1299c9655e6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

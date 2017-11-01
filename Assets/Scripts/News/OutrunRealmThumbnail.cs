@@ -25,24 +25,15 @@ public class OutrunRealmThumbnail : MonoBehaviour {
 
 	protected void LoadImage(string url) {
 
-		StartCoroutine (LoadImageCoroutine (url));
+		ResourceManager.OnImageLoadingComplete += OnImageLoaded;
+		ResourceManager.LoadImage (url, OnImageLoaded);
 	}
 
-	private IEnumerator LoadImageCoroutine(string url) {
-
-		WWW request = new WWW (url);
-
-		while(request.isDone == false) {
-
-			Debug.Log (string.Format ("Image loading: {0}", request.progress));
-			yield return request;
-		}
-
-		Debug.Log (string.Format ("Image loading: {0}", request.progress));
-
+	void OnImageLoaded (Texture2D texture)
+	{
 		image.sprite = Sprite.Create(
-			request.texture
-			, new Rect(0, 0, request.texture.width, request.texture.height)
+			texture
+			, new Rect(0, 0, texture.width, texture.height)
 			, Vector2.zero
 		);
 	}
