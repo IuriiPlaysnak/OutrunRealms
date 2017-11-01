@@ -4,5 +4,19 @@
 		"title":"About Playsnak",
 		"imageURL":"http://blog.playsnak.com/wp-content/uploads/2016/10/blog_smallimage02.png",
 		"link":"https://playsnak.com/story.html"
+	},
+	"galleryData":
+	{
+		"title":"Gallery",
+		"thumbnailImageURL":"http://blog.playsnak.com/wp-content/uploads/2016/10/blog_smallimage01.png",
+		"images":
+		[
+			"http://playsnak.com/assets/img/main_about_rightimage.png",
+			"http://playsnak.com/assets/img/main_games_leftimage.png",
+			"http://playsnak.com/assets/img/job_lefttextimage.png",
+			"http://playsnak.com/assets/img/main_about_rightimage.png",
+			"http://playsnak.com/assets/img/main_games_leftimage.png",
+			"http://playsnak.com/assets/img/job_lefttextimage.png"
+		]
 	}
 }

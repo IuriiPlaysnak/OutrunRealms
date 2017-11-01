@@ -132,16 +132,4 @@ public class OutrunRealmHTMLDataSource : IOutrunRealmDataSource {
 
 		_posts.Add(postData);
 	}
-
-//	public struct Blogpost
-//	{
-//		public string header;
-//		public string imageURL;
-//		public string link;
-//
-//		public override string ToString ()
-//		{
-//			return string.Format ("[Blogpost]: header = {0}, img = {1}, link = {2}", header, imageURL, link);
-//		}
-//	}
 }

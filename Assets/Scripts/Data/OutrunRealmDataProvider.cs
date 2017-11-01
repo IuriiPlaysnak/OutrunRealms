@@ -46,7 +46,7 @@ public class OutrunRealmDataProvider : MonoBehaviour {
 
 			case SourceFormat.JSON:
 
-				_dataSource = new OutrunRealmJSONdataSource();
+				_dataSource = new OutrunRealmJSONDataSource();
 				dataSourceUrl = _settingJsonUrl;
 				break;
 
@@ -94,6 +94,7 @@ public class OutrunRealmDataProvider : MonoBehaviour {
 		public GalleryData galleryData;
 	}
 
+	[System.Serializable]
 	public struct GalleryData {
 
 		public string title;

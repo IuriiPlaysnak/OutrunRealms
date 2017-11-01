@@ -1,10 +1,10 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj" RefactoringSettings.EnableRefactorings="True">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Data\ResourceManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Data\OutrunRealmJSONDataSource.cs">
     <Files>
-      <File FileName="Assets\Scripts\Data\OutrunRealmHTMLDataSource.cs" Line="93" Column="72" />
-      <File FileName="Assets\Scripts\Gallery\OutrunGallery.cs" Line="66" Column="37" />
-      <File FileName="Assets\Scripts\Data\ResourceManager.cs" Line="21" Column="1" />
+      <File FileName="Assets\Scripts\Data\OutrunRealmJSONDataSource.cs" Line="34" Column="1" />
+      <File FileName="Assets\Scripts\Data\OutrunRealmDataProvider.cs" Line="97" Column="23" />
+      <File FileName="Assets\Scripts\Thumbnail\OutrunRealmThumbnail.cs" Line="30" Column="24" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -25,7 +25,12 @@ public class OutrunRealmThumbnail : MonoBehaviour {
 
 	protected void LoadImage(string url) {
 
-		ResourceManager.OnImageLoadingComplete += OnImageLoaded;
+		if (url == null) {
+			
+			Debug.LogError ("URL is empty");
+			return;
+		}
+		
 		ResourceManager.LoadImage (url, OnImageLoaded);
 	}
 

@@ -54,14 +54,11 @@ public class OutrunGallery : MonoBehaviour {
 
 		_countTextField.text = string.Format ("{0} / {1}", _currentImage + 1, _imagesURLs.Count);
 
-		ResourceManager.OnImageLoadingComplete += OnImageLoaded;
-		ResourceManager.LoadImage (url);
+		ResourceManager.LoadImage (url, OnImageLoaded);
 	}
 
 	void OnImageLoaded (Texture2D texture)
 	{
-		ResourceManager.OnImageLoadingComplete -= OnImageLoaded;
-
 		_display.sprite = Sprite.Create(
 				texture
 				, new Rect(0, 0, texture.width, texture.height)

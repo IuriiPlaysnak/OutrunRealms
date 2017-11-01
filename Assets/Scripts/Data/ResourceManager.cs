@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class ResourceManager : MonoBehaviour {
 
-	static public event System.Action<Texture2D> OnImageLoadingComplete;
-
 	static private ResourceManager _instance;
 
 	void Awake() {
