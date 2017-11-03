@@ -13,13 +13,56 @@ public class DashboardCard : MonoBehaviour {
 
     public GameObject toolbar;
 
-	// Use this for initialization
-	void Start () {
-	}
-    private void Awake()
+	[SerializeField]
+	private Toolbar _toolbar;
+
+
+    void Awake()
     {
         screenspaceWidth = transform.localScale.x * canvasDimensions.rect.width * canvasDimensions.localScale.x;
+
+		InteractiveItem ii = gameObject.GetComponent<InteractiveItem> ();
+		if (ii != null) {
+
+			ii.OnOver += OnOver;
+			ii.OnOut += OnOut;
+		}
+
+		_toolbar.Hide (false);
     }
+
+	void OnOut ()
+	{
+		Debug.Log(this + ": OnOut");
+		_toolbar.Hide (true);
+	}
+
+	void OnOver ()
+	{
+		Debug.Log(this + ": OnOver");
+		_toolbar.Show();
+	}
+
+	private bool _isFrontShown = true;
+
+	[SerializeField]
+	private Animation _flipAnimation;
+
+	private void Flip() {
+
+		if (_isFrontShown)
+		{
+			_flipAnimation["flip"].speed = 1;
+			_flipAnimation.Play();
+			_isFrontShown = false;
+		}
+		else {
+			_flipAnimation["flip"].speed = -1;
+			_flipAnimation["flip"].time = _flipAnimation["flip"].length;
+			_flipAnimation.Play();
+			_isFrontShown = true;
+		}
+	}
 
     // Update is called once per frame
     void Update () {

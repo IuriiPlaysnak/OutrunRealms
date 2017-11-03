@@ -9,8 +9,13 @@ public class InteractiveItem : MonoBehaviour {
 
 	public event Action OnClick;
 	public event Action OnBack;
-	public event Action<RaycastHit> OnOver;
+	public event Action OnOver;
 	public event Action OnOut;
+	public event Action<RaycastHit> OnMoveOver;
+
+	public bool isClickable {
+		get { return OnClick != null; }
+	}
 
 	public void Click() {
 		ProcessClick ();	
@@ -20,19 +25,18 @@ public class InteractiveItem : MonoBehaviour {
 		ProcessBack ();
 	}
 
-	public void Over(RaycastHit hit) {
-		ProcessOver (hit);
+	public void Over() {
+		ProcessOver ();
 	}
 
 	public void Out() {
 		ProcessOut ();
 	}
-		
-	void OnMouseDown(){
 
-		ProcessClick ();
+	public void MoveOver(RaycastHit hit) {
+		ProcessMoveOver (hit);
 	}
-
+		
 	private void ProcessBack() {
 
 		if (OnBack != null)
@@ -45,10 +49,16 @@ public class InteractiveItem : MonoBehaviour {
 			OnClick ();
 	}
 
-	private void ProcessOver(RaycastHit hit) {
+	private void ProcessOver() {
 
 		if (OnOver != null)
-			OnOver (hit);
+			OnOver ();
+	}
+
+	private void ProcessMoveOver(RaycastHit hit) {
+
+		if (OnMoveOver != null)
+			OnMoveOver (hit);
 	}
 
 	private void ProcessOut() {

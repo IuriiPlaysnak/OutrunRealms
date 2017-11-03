@@ -7,6 +7,25 @@ public class NewsCard : MonoBehaviour {
     public Animation flip;
     bool front = true;
 
+	[SerializeField]
+	private InteractiveItem _readmoreButton;
+
+	[SerializeField]
+	private InteractiveItem _backButton;
+
+	void Awake() {
+
+		_backButton.OnClick += OnClick;
+		_readmoreButton.OnClick += OnClick;
+
+	}
+
+	void OnClick() {
+
+		Flip ();
+	}
+
+
 	// Use this for initialization
 	void Start () {
 		
@@ -16,18 +35,23 @@ public class NewsCard : MonoBehaviour {
 	void Update () {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (front)
-            {
-                flip["flip"].speed = 1;
-                flip.Play();
-                front = false;
-            }
-            else {
-                flip["flip"].speed = -1;
-                flip["flip"].time = flip["flip"].length;
-                flip.Play();
-                front = true;
-            }
+			Flip ();
         }
+	}
+
+	private void Flip() {
+
+		if (front)
+		{
+			flip["flip"].speed = 1;
+			flip.Play();
+			front = false;
+		}
+		else {
+			flip["flip"].speed = -1;
+			flip["flip"].time = flip["flip"].length;
+			flip.Play();
+			front = true;
+		}
 	}
 }
