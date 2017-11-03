@@ -7,12 +7,10 @@ using ZenFulcrum.EmbeddedBrowser;
 internal class BrowserControllerInput : MonoBehaviour {
 
 	private Browser _browser;
-	private Collider _collider;
 
 	void Awake() {
 
 		_browser = gameObject.GetComponent<Browser> ();
-		_collider = gameObject.GetComponent<Collider> ();
 	}
 
 //	System.Diagnostics.Process _process;
@@ -35,7 +33,6 @@ internal class BrowserControllerInput : MonoBehaviour {
 	private int _scrollSpeed = 100;
 
 	private Vector2 _prevCursorPosition;
-	private Vector3 _localHitPointShift = new Vector3 (5f, 0f, 5f);
 
 	private void HandleControllerInput() {
 
@@ -52,19 +49,15 @@ internal class BrowserControllerInput : MonoBehaviour {
 		mouseScroll += OVRInput.Get (OVRInput.Axis2D.PrimaryThumbstick);
 		mouseScroll += OVRInput.Get (OVRInput.Axis2D.SecondaryThumbstick);
 
-		Vector2 currentCursorPosition = hit.point.normalized;
-
-		Vector3 localHitPoint = hit.collider.transform.InverseTransformPoint (hit.point);
-		Vector3 shiftedHitPoint = localHitPoint;
-		shiftedHitPoint.x = _localHitPointShift.x - shiftedHitPoint.x;
-		shiftedHitPoint.z = shiftedHitPoint.z + _localHitPointShift.z;
-
-		currentCursorPosition.x = shiftedHitPoint.x / 10f;
-		currentCursorPosition.y = shiftedHitPoint.z / 10f;
+		Vector2 currentCursorPosition = new Vector2 ();
+		currentCursorPosition.x = hit.textureCoord.x;
+		currentCursorPosition.y = 1f - hit.textureCoord.y;
 
 		if (currentCursorPosition != _prevCursorPosition) {
 			BrowserNative.zfb_mouseMove(_browser.browserId, currentCursorPosition.x, currentCursorPosition.y);
 		}
+
+		_prevCursorPosition = currentCursorPosition;
 
 		if (mouseScroll.sqrMagnitude != 0) {
 			BrowserNative.zfb_mouseScroll (
@@ -94,7 +87,5 @@ internal class BrowserControllerInput : MonoBehaviour {
 				, 1				
 			);
 		}
-			
-		_prevCursorPosition = currentCursorPosition;
 	}
 }

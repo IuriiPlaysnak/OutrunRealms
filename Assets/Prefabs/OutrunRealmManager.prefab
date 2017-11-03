@@ -63,6 +63,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8385ed95215879848a7fed249794ea66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sourceFormat: 1
-  _settingJsonUrl: http://localhost:8080/outrunrealmsettings.json
-  _webSiteUrl: http://localhost:8080/html/index.html
+  _sourceFormat: 0
+  _settingJsonUrl: http://hayabu4i.com/realms/OutrunRealmSettings.json
+  _webSiteUrl: http://hayabu4i.com/realms/html/index.html
