@@ -151,7 +151,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1087965735051290
 GameObject:
   m_ObjectHideFlags: 1
@@ -379,7 +379,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1243580953421960
 GameObject:
   m_ObjectHideFlags: 1
@@ -1232,7 +1232,7 @@ GameObject:
   - component: {fileID: 4524950396906716}
   - component: {fileID: 114218055897350038}
   m_Layer: 0
-  m_Name: OutrunDashboard 1
+  m_Name: OutrunDashboard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1548,7 +1548,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1967538673229748
 GameObject:
   m_ObjectHideFlags: 1

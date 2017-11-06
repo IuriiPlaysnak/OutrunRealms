@@ -765,7 +765,7 @@ GameObject:
   - component: {fileID: 4314513044196038}
   - component: {fileID: 114439717932210038}
   m_Layer: 0
-  m_Name: dashboard
+  m_Name: dashboard_old
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2553,7 +2553,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   canvasDimensions: {fileID: 224627791775739948}
-  toolbar: {fileID: 1407354982553338}
   _toolbar: {fileID: 114912626337677408}
   _flipAnimation: {fileID: 111181278546156472}
 --- !u!114 &114191795964609322
@@ -2795,7 +2794,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   canvasDimensions: {fileID: 224798947262365208}
-  toolbar: {fileID: 1305337730275350}
   _toolbar: {fileID: 114409095919794758}
   _flipAnimation: {fileID: 0}
 --- !u!114 &114260867656121924
@@ -3018,7 +3016,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 4
   canvasDimensions: {fileID: 224964308675232544}
-  toolbar: {fileID: 1279179180906268}
   _toolbar: {fileID: 114748197428351412}
   _flipAnimation: {fileID: 0}
 --- !u!114 &114330127099124286
@@ -3458,7 +3455,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 5
   canvasDimensions: {fileID: 224248262983019090}
-  toolbar: {fileID: 1093119889005402}
   _toolbar: {fileID: 114646621864818970}
   _flipAnimation: {fileID: 0}
 --- !u!114 &114436506160258498
@@ -3768,7 +3764,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 5
   canvasDimensions: {fileID: 224984227656550558}
-  toolbar: {fileID: 1389862220337146}
   _toolbar: {fileID: 114196372327587740}
   _flipAnimation: {fileID: 0}
 --- !u!114 &114490787084293816
@@ -4136,7 +4131,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 3
   canvasDimensions: {fileID: 224450503388411076}
-  toolbar: {fileID: 1421284734048738}
   _toolbar: {fileID: 114921234257935820}
   _flipAnimation: {fileID: 0}
 --- !u!114 &114544133728776594
