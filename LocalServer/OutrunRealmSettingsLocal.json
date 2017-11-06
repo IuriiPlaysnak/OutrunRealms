@@ -1,0 +1,21 @@
+{
+	"newsData" : 
+	{
+		"title":"About Playsnak",
+		"imageURL":"http://blog.playsnak.com/wp-content/uploads/2016/10/blog_smallimage02.png",
+		"link":"https://playsnak.com/story.html"
+	},
+	"galleryData":
+	{
+		"title":"Gallery",
+		"thumbnailImageURL":"http://blog.playsnak.com/wp-content/uploads/2016/10/blog_smallimage01.png",
+		"images":
+		[
+			"http://localhost:8080/images/image01.png",
+			"http://localhost:8080/images/image02.png",
+			"http://localhost:8080/images/image03.png",
+			"http://localhost:8080/images/image04.png",
+			"http://localhost:8080/images/image05.png"
+		]
+	}
+}
