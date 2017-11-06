@@ -6,3 +6,4 @@ obj/
 *.unityproj
 Assets/CurvedUI/
 Assets/GameSparks/
+build/

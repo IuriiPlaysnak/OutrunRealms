@@ -11,8 +11,6 @@ public class DashboardCard : MonoBehaviour {
     public float GetScreenspaceWidth() { return screenspaceWidth; }
     public void SetScreenspaceWidth(float newWidth) { screenspaceWidth = newWidth; }
 
-    public GameObject toolbar;
-
 	[SerializeField]
 	private Toolbar _toolbar;
 
@@ -28,19 +26,22 @@ public class DashboardCard : MonoBehaviour {
 			ii.OnOut += OnOut;
 		}
 
-		_toolbar.Hide (false);
+		if(_toolbar != null)
+			_toolbar.Hide (false);
     }
 
 	void OnOut ()
 	{
 		Debug.Log(this + ": OnOut");
-		_toolbar.Hide (true);
+		if(_toolbar != null)
+			_toolbar.Hide (true);
 	}
 
 	void OnOver ()
 	{
 		Debug.Log(this + ": OnOver");
-		_toolbar.Show();
+		if(_toolbar != null)
+			_toolbar.Show();
 	}
 
 	private bool _isFrontShown = true;

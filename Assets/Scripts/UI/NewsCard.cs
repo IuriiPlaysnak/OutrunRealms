@@ -18,6 +18,17 @@ public class NewsCard : MonoBehaviour {
 		_backButton.OnClick += OnClick;
 		_readmoreButton.OnClick += OnClick;
 
+		_backButton.gameObject.SetActive (false);
+
+		InteractiveItem ii = gameObject.GetComponent<InteractiveItem> ();
+		if(ii != null)
+			ii.OnMoveOver += OnMoveOver;
+	}
+
+	void OnMoveOver (RaycastHit hit)
+	{
+		Vector3 p = hit.collider.transform.InverseTransformPoint (hit.point); 
+//		Debug.Log (p.x + "; " + p.y + "; " + hit.collider.bounds);
 	}
 
 	void OnClick() {

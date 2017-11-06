@@ -94,6 +94,7 @@ public class GazeController : MonoBehaviour {
 
 		} else {
 
+			_cursor.UpdateMode (OutrunGazeCursor.Mode.NORMAL);
 			_cursor.transform.position = _headAnchor.transform.position + _headAnchor.transform.forward * 10f;
 			_cursor.transform.rotation = Quaternion.LookRotation (_cursor.transform.position - _headAnchor.transform.position);
 
