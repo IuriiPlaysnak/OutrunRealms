@@ -20,22 +20,37 @@ public class YouTubeVideoCard : MonoBehaviour {
 	private bool _isPlaying;
 	private bool _isPlayerShown;
 
+	private string _htmlTemplate = string.Empty;
+
 	void Awake() {
 
 		_browser.gameObject.SetActive (false);
 
 		_playButton.OnClick += OnPlayButtonClick;
+
+		TextAsset asset = Resources.Load ("YouTubeVideoTemplate") as TextAsset;
+		_htmlTemplate = asset.text;
+	}
+
+	void Start() {
+		
 	}
 
 	void OnPlayButtonClick ()
 	{
+		if (OutrunRealmDataProvider.isLoadingComlete == false)
+			return;
+
 		if (_isPlayerShown == false) {
 
 			_isPlayerShown = true;
 			_thumbnail.SetActive (false);
 			_description.SetActive (false);
 			_browser.gameObject.SetActive (true);
-			_browser.LoadURL (@"http://localhost:8080/video", true);
+
+			OutrunRealmDataProvider.VideoData videodata = OutrunRealmDataProvider.videosData.videos [0];
+			string videoHTML = _htmlTemplate.Replace ("video_id", videodata.id);
+			_browser.LoadHTML(videoHTML);
 		}
 
 		_isPlaying = !_isPlaying;
@@ -61,15 +76,5 @@ public class YouTubeVideoCard : MonoBehaviour {
 			, false
 			, 0				
 		);
-	}
-		
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 }

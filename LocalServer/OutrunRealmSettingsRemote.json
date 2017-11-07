@@ -1,0 +1,21 @@
+{
+	"newsData" : 
+	{
+		"title":"About Playsnak",
+		"imageURL":"http://blog.playsnak.com/wp-content/uploads/2016/10/blog_smallimage02.png",
+		"link":"https://playsnak.com/story.html"
+	},
+	"galleryData":
+	{
+		"title":"Gallery",
+		"thumbnailImageURL":"http://blog.playsnak.com/wp-content/uploads/2016/10/blog_smallimage01.png",
+		"images":
+		[
+			"http://hayabu4i.com/realms/images/image01.png",
+			"http://hayabu4i.com/realms/images/image02.png",
+			"http://hayabu4i.com/realms/images/image03.png",
+			"http://hayabu4i.com/realms/images/image04.png",
+			"http://hayabu4i.com/realms/images/image05.png"
+		]
+	}
+}

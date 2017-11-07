@@ -10,14 +10,29 @@ public class OutrunRealmDataProvider : MonoBehaviour {
 		HTML
 	}
 
+	private enum SourceType
+	{
+		LOCAL,
+		REMOTE
+	}
+
+	[SerializeField]
+	private SourceType _sourceType;
+
 	[SerializeField]
 	private SourceFormat _sourceFormat;
 
 	[SerializeField]
-	private string _settingJsonUrl = null;
+	private string _localPath;
 
 	[SerializeField]
-	private string _webSiteUrl = null;
+	private string _remotePath;
+
+	[SerializeField]
+	private string _jsonUrl = null;
+
+	[SerializeField]
+	private string _htmlURL = null;
 
 
 
@@ -40,6 +55,18 @@ public class OutrunRealmDataProvider : MonoBehaviour {
 		if (_instance == null)
 			_instance = this;
 
+		switch (_sourceType) {
+
+			case SourceType.REMOTE:
+				_jsonUrl = _remotePath;
+				break;
+
+			case SourceType.LOCAL:
+			default:
+				_jsonUrl = _localPath;
+				break;
+		}
+
 		string dataSourceUrl = string.Empty;
 
 		switch (_sourceFormat) {
@@ -47,13 +74,13 @@ public class OutrunRealmDataProvider : MonoBehaviour {
 			case SourceFormat.JSON:
 
 				_dataSource = new OutrunRealmJSONDataSource();
-				dataSourceUrl = _settingJsonUrl;
+				dataSourceUrl = _jsonUrl;
 				break;
 
 			case SourceFormat.HTML:
 
 				_dataSource = new OutrunRealmHTMLDataSource ();
-				dataSourceUrl = _webSiteUrl;
+				dataSourceUrl = _htmlURL;
 				break;
 
 			default:
@@ -87,11 +114,54 @@ public class OutrunRealmDataProvider : MonoBehaviour {
 		get { return _instance._settingsData.galleryData; }
 	}
 
+	static public VideosData videosData {
+		get { return _instance._settingsData.videosData; }
+	}
+
 	[System.Serializable]
 	public struct SettingData {
 
 		public NewsData newsData;
 		public GalleryData galleryData;
+		public VideosData videosData;
+	}
+
+	[System.Serializable]
+	public struct VideoData {
+
+		public string title;
+		public string description;
+		public string url;
+
+		private string _id;
+
+		public string id {
+
+			get { 
+
+				if (_id == "" || _id == null) {
+
+					_id = url.Remove (0, url.IndexOf ("watch?v="));
+					_id = _id.Replace ("watch?v=", "");
+					int indexOfIdEnd = _id.IndexOf ("&");
+					if (indexOfIdEnd > -1)
+						_id = _id.Substring (0, indexOfIdEnd);
+				}
+
+				return _id;
+			}
+		}
+
+		public override string ToString ()
+		{
+			return string.Format ("[VideoData: id={0}, url={1}]", id, url);
+		}
+	}
+
+	[System.Serializable]
+	public struct VideosData {
+
+		public List<VideoData> videos;
 	}
 
 	[System.Serializable]
