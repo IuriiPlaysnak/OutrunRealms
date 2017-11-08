@@ -1,13 +1,14 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj" RefactoringSettings.EnableRefactorings="True">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\YouTubeVideoCard.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Input\CustomPlatformManager.cs">
     <Files>
       <File FileName="Assets\Scripts\Input\BrowserGazeController.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Gallery\OutrunGallery.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Gallery\OutrunGalleryView.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\YouTubeVideoCard.cs" Line="28" Column="3" />
-      <File FileName="Assets\Scripts\Data\OutrunRealmDataProvider.cs" Line="139" Column="4" />
+      <File FileName="Assets\Scripts\Data\OutrunRealmDataProvider.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\UI\DashboardCard.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Input\CustomPlatformManager.cs" Line="2" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
