@@ -5,6 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/ui.unity
+  - enabled: 0
+    path: Assets/Realm/Scenes/ui.unity
     guid: 6eaf81a5b2c729b45aedf88a38040ef0
+  - enabled: 1
+    path: Assets/Realm/Scenes/DashboardWithYouTubeIntegration.unity
+    guid: 56ee50ae0b5457f4792df7f1bc798fc5

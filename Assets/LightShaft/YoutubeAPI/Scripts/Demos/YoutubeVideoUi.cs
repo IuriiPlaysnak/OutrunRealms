@@ -47,12 +47,12 @@ public class YoutubeVideoUi : MonoBehaviour {
         mainUI.SetActive(true);
     }
 
-    public IEnumerator PlayVideo(string url)
-    {
-        yield return Handheld.PlayFullScreenMovie(url, Color.black, FullScreenMovieControlMode.Full, FullScreenMovieScalingMode.Fill);
-        Debug.Log("below this line will run when the video is finished");
-        VideoFinished();
-    }
+//    public IEnumerator PlayVideo(string url)
+//    {
+//        yield return Handheld.PlayFullScreenMovie(url, Color.black, FullScreenMovieControlMode.Full, FullScreenMovieScalingMode.Fill);
+//        Debug.Log("below this line will run when the video is finished");
+//        VideoFinished();
+//    }
 
     public void LoadThumbnail()
     {

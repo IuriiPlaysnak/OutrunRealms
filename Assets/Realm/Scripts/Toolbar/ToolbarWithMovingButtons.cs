@@ -9,6 +9,9 @@ public class ToolbarWithMovingButtons : MonoBehaviour {
 	private InteractiveItem _interaction;
 
 	[SerializeField]
+	private RectTransform _buttonPlaceholder;
+
+	[SerializeField]
 	private List<GameObject> _buttons;
 
 	private enum Orientation {
@@ -21,18 +24,27 @@ public class ToolbarWithMovingButtons : MonoBehaviour {
 
 	void Awake() {
 
-		_interaction = gameObject.GetComponent<InteractiveItem> ();
+		foreach (GameObject button in _buttons) {
 
-		if (_interaction != null) {
-			_interaction.OnMoveOver += OnMoveOver;
-		}
-
-		foreach (InteractiveItem ii in gameObject.GetComponentsInChildren<InteractiveItem>()) {
-
+			InteractiveItem ii = button.GetComponent<InteractiveItem> ();
 			ii.OnOver += OnOver;
 			ii.OnOut += OnOut;
 		}
 
+		foreach (var toolbar in GameObject.FindObjectsOfType<ToolbarWithMovingButtons>()) {
+			InteractiveItem ii = toolbar.GetComponent<InteractiveItem> ();
+			ii.OnOver += OnOver;
+			ii.OnOut += OnOut;
+		}
+
+		_interaction = gameObject.GetComponent<InteractiveItem> ();
+
+		if (_interaction != null) {
+			_interaction.OnMoveOver += OnMoveOver;
+			_interaction.OnOver += OnToolbarOver;
+			_interaction.OnOut += OnToolbarOut;
+		}
+			
 		Hide (false);
 	}
 
@@ -62,28 +74,31 @@ public class ToolbarWithMovingButtons : MonoBehaviour {
 
 		Vector2 newPosition = new Vector2 ();
 
-		foreach (var button in _buttons) {
+//		foreach (var button in _buttons) {
 
-			RectTransform buttonTransform = button.transform as RectTransform;
+//			RectTransform buttonTransform = button.transform as RectTransform;
+			RectTransform buttonTransform = _buttonPlaceholder;
 			newPosition.x = buttonTransform.anchoredPosition.x;
 			newPosition.y = newY;
 
 			buttonTransform.anchoredPosition = newPosition;
-		}
+//		}
 	}
 
 	private void SetHorizontalPosition(float newX) {
 
 		Vector2 newPosition = new Vector2 ();
 
-		foreach (var button in _buttons) {
+//		foreach (var button in _buttons) {
+//
+//			RectTransform buttonTransform = button.transform as RectTransform;
 
-			RectTransform buttonTransform = button.transform as RectTransform;
+			RectTransform buttonTransform = _buttonPlaceholder;
 			newPosition.x = newX;
 			newPosition.y = buttonTransform.anchoredPosition.y;
 
 			buttonTransform.anchoredPosition = newPosition;
-		}
+//		}
 	}
 
 	void Update () {
@@ -99,6 +114,12 @@ public class ToolbarWithMovingButtons : MonoBehaviour {
 
 	void OnToolbarOver() {
 
+		foreach (var button in _buttons) {
+			button.transform.parent = _buttonPlaceholder;
+			button.transform.localRotation = Quaternion.identity;
+			button.transform.localPosition = Vector3.zero;
+		}
+
 		Show ();
 	}
 
@@ -106,8 +127,6 @@ public class ToolbarWithMovingButtons : MonoBehaviour {
 
 		Hide (true);
 	}
-
-	private bool _isOverButton;
 
 	void OnOut ()
 	{
