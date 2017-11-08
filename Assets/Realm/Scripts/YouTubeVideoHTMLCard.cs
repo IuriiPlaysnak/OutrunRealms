@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using ZenFulcrum.EmbeddedBrowser;
 
-public class YouTubeVideoCard : MonoBehaviour {
+public class YouTubeVideoHTMLCard : MonoBehaviour {
 
 	[SerializeField]
 	private Browser _browser;
