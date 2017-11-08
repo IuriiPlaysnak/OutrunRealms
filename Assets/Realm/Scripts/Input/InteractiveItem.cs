@@ -65,4 +65,10 @@ public class InteractiveItem : MonoBehaviour {
 		if (OnOut != null)
 			OnOut ();
 	}
+
+	static public void GetLocalHitData(RaycastHit hit, out Vector3 localColliderSize, out Vector3 localHitPoint ) {
+
+		localColliderSize = hit.collider.gameObject.GetComponentInParent<Transform> ().InverseTransformVector (hit.collider.bounds.size);
+		localHitPoint = hit.collider.gameObject.GetComponentInParent<Transform> ().InverseTransformPoint (hit.point);		
+	}
 }

@@ -44,7 +44,7 @@ public class Dashboard : MonoBehaviour {
                 card.transform.LookAt(Vector3.zero);
             }
 
-            previousWidth = card.GetScreenspaceWidth();
+            previousWidth = card.GetScreenspaceWidth() + 0.5f;
             previousMergePoint = card.transform.localPosition + Vector3.Normalize(Quaternion.AngleAxis(90, Vector3.up) * card.transform.localPosition) * card.GetScreenspaceWidth() / 2;
         }
         transform.localRotation = Quaternion.AngleAxis(-angle / 2, Vector3.up);

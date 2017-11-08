@@ -44,7 +44,7 @@ public class GazeController : MonoBehaviour {
 
 			if (ii != _lastInteraction) {
 			
-				Debug.Log (ii + "; " + _lastInteraction);
+//				Debug.Log (ii + "; " + _lastInteraction);
 				_isOver = false;
 				_timer = 0f;
 				_isFocusConsumed = false;
@@ -125,7 +125,7 @@ public class GazeController : MonoBehaviour {
 
 	private void Out(InteractiveItem item) {
 
-		Debug.Log ("Out: " + item);
+//		Debug.Log ("Out: " + item);
 
 		if (item != null)
 			item.Out ();
@@ -133,7 +133,7 @@ public class GazeController : MonoBehaviour {
 
 	private void Over(InteractiveItem item) {
 
-		Debug.Log ("Over: " + item);
+//		Debug.Log ("Over: " + item);
 
 		if (item != null)
 			item.Over ();
