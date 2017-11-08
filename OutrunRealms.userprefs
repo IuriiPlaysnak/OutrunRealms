@@ -1,15 +1,13 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj" RefactoringSettings.EnableRefactorings="True">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Input\BrowserControllerInput.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\YouTubeVideoCard.cs">
     <Files>
-      <File FileName="Assets\NewsScroll.cs" Line="38" Column="16" />
-      <File FileName="Assets\GazeScroll.cs" Line="34" Column="1" />
-      <File FileName="Assets\Scripts\UI\NewsCard.cs" Line="21" Column="44" />
-      <File FileName="Assets\Toolbar.cs" Line="59" Column="2" />
-      <File FileName="Assets\Scripts\UI\Dashboard.cs" Line="21" Column="1" />
-      <File FileName="Assets\Scripts\UI\DashboardCard.cs" Line="14" Column="1" />
-      <File FileName="Assets\Scripts\Input\ViewInteractivity.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Input\BrowserControllerInput.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Input\BrowserGazeController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Gallery\OutrunGallery.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Gallery\OutrunGalleryView.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\YouTubeVideoCard.cs" Line="28" Column="3" />
+      <File FileName="Assets\Scripts\Data\OutrunRealmDataProvider.cs" Line="139" Column="4" />
+      <File FileName="Assets\Scripts\UI\DashboardCard.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
