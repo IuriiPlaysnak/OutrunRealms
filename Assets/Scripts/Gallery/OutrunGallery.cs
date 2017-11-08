@@ -43,6 +43,9 @@ public class OutrunGallery : MonoBehaviour {
 
 	public void NextImage() {
 
+		if (_imagesURLs == null || _imagesURLs.Count == 0)
+			return;
+
 		_currentImage++;
 		if (_currentImage > _imagesURLs.Count - 1)
 			_currentImage = 0;

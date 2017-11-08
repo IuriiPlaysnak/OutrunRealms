@@ -1,0 +1,42 @@
+{
+	"newsData" : 
+	{
+		"title":"About Playsnak",
+		"imageURL":"http://blog.playsnak.com/wp-content/uploads/2016/10/blog_smallimage02.png",
+		"link":"https://playsnak.com/story.html"
+	},
+	"galleryData":
+	{
+		"title":"Gallery",
+		"thumbnailImageURL":"http://blog.playsnak.com/wp-content/uploads/2016/10/blog_smallimage01.png",
+		"images":
+		[
+			"http://localhost:8080/images/image01.png",
+			"http://localhost:8080/images/image02.png",
+			"http://localhost:8080/images/image03.png",
+			"http://localhost:8080/images/image04.png",
+			"http://localhost:8080/images/image05.png"
+		]
+	},
+	"videosData": 
+	{
+		"videos":
+		[
+			{
+				"title": "Introducing Facebook 360 for Gear VR",
+				"description": "Ever since 360 photos and videos came to Facebook, people around the world have embraced these new formats. 360 can take you into the action with your favorite sports teams, bring you behind the scenes at awards shows, transport you to beautiful places around the world, and put you at the center of breaking news moments like never before.",
+				"url": "https://www.youtube.com/watch?v=RHFVeawBok4"
+			},
+			{
+				"title": "Green Day - American Idiot [OFFICIAL VIDEO]",
+				"description": "Watch Green Day's official video for 'American Idiot'",
+				"url": "https://www.youtube.com/watch?v=Ee_uujKuJMI"
+			},
+			{
+				"title": "Mobile VR Jam 2015 - SOCIAL VR",
+				"description": "Discovering social networks in VR http://vrjam.challengepost.com/submis...",
+				"url": "https://www.youtube.com/watch?v=c44eVcq5gWI"
+			}
+		]
+	}
+}

@@ -14,10 +14,10 @@ public class BrowserGazeController : MonoBehaviour {
 		InteractiveItem item = gameObject.GetComponent<InteractiveItem> ();
 		item.OnClick += OnClick;
 		item.OnOut += OnOut;
-		item.OnOver += OnOver;
+		item.OnMoveOver += OnMoveOver;
 	}
 
-	void OnOver (RaycastHit hit)
+	void OnMoveOver (RaycastHit hit)
 	{
 		BrowserNative.zfb_mouseMove(_browser.browserId, hit.textureCoord.x, 1 - hit.textureCoord.y);
 	}
