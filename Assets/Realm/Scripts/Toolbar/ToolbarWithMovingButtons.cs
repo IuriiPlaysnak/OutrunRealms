@@ -70,8 +70,6 @@ public class ToolbarWithMovingButtons : MonoBehaviour {
 
 	private void SetVerticalPosition(float newY) {
 
-		Debug.Log (newY);
-
 		Vector2 newPosition = new Vector2 ();
 
 //		foreach (var button in _buttons) {

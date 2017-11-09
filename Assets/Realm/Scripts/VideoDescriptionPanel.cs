@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class VideoDescriptionPanel : MonoBehaviour {
 
+	private const int MAX_DESCRIPTION_TEXT_LENGTH = 140;
+
 	[SerializeField]
 	private Text _title;
 
@@ -24,12 +26,25 @@ public class VideoDescriptionPanel : MonoBehaviour {
 	public void ShowContent(VideoPanelCard.VideoDescriptionContent content) {
 
 		_title.text = content.title;
-		_desription.text = content.description
-			.Replace("\r\n", "\n")
-			.Replace('\r', '\n')
-			.Replace('\n', ' ')
-			.Substring (0, 140)
-			.Insert (140, "...");
+		_desription.text = FormatDescription (content.description);
+	}
+
+	private string FormatDescription(string text) {
+
+		string result = text
+			.Replace ("\r\n", "\n")
+			.Replace ('\r', '\n')
+			.Replace ('\n', ' ')
+			.Replace ("  ", System.Environment.NewLine);
+
+		if(text.Length > MAX_DESCRIPTION_TEXT_LENGTH) {
+
+			result = result
+				.Substring (0, MAX_DESCRIPTION_TEXT_LENGTH)
+				.Insert (MAX_DESCRIPTION_TEXT_LENGTH, "...");
+		}
+
+		return result;
 	}
 
 	public void Show() {

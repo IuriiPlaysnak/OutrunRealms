@@ -16,6 +16,10 @@ public class YouTubeVideoCard : MonoBehaviour {
 	[SerializeField]
 	private List<InteractiveItem> _playPauseButtons;
 
+	public event System.Action OnPlay;
+	public event System.Action OnPause;
+	public event System.Action OnComplete;
+
 	private YouTubePlayback _playback;
 	private YoutubeAPIManager _youtubeManager;
 	private InteractiveItem _interaction;
@@ -35,12 +39,25 @@ public class YouTubeVideoCard : MonoBehaviour {
 			button.OnClick += OnPlayPause;
 	}
 
+	void OnDestroy() {
+
+		_playback.unityVideoPlayer.targetTexture.Release ();
+	}
+
 	void OnPlayPause ()
 	{
-		if (_playback.unityVideoPlayer.isPlaying)
+		if (_playback.unityVideoPlayer.isPlaying) {
+
 			_playback.unityVideoPlayer.Pause ();
-		else
+			if (OnPause != null)
+				OnPause ();
+			
+		} else {
+			
 			_playback.unityVideoPlayer.Play ();
+			if (OnPlay != null)
+				OnPlay ();
+		}
 	}
 
 	// Use this for initialization
@@ -52,8 +69,9 @@ public class YouTubeVideoCard : MonoBehaviour {
 		}
 
 		_descriptionPanel.Hide ();
-		_playback.PlayYoutubeVideo (GetVideoIdFromUrl (_videoURL));
-		_youtubeManager.GetVideoData (GetVideoIdFromUrl (_videoURL), OnVideoData);
+
+		if(_videoURL != null && _videoURL != "") 
+			PlayVideo (YouTubeUtils.GetVideoIdFromUrl (_videoURL));
 	}
 
 	void OnOut ()
@@ -76,7 +94,18 @@ public class YouTubeVideoCard : MonoBehaviour {
 //		}
 	}
 
-	private void OnVideoData(YoutubeData data) {
+	public void PlayVideo(string videoId) {
+
+		if (OnPlay != null)
+			OnPlay ();
+
+		_playback.unityVideoPlayer.loopPointReached += OnVideoComplete;
+
+		_playback.PlayYoutubeVideo (videoId);
+		_youtubeManager.GetVideoData (videoId, OnVideoDataLoaded);
+	}
+
+	private void OnVideoDataLoaded(YoutubeData data) {
 
 		_contentPanel.ShowContent (
 			new VideoPanelCard.VideoDescriptionContent () 
@@ -95,19 +124,9 @@ public class YouTubeVideoCard : MonoBehaviour {
 		);
 	}
 
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
-	private string GetVideoIdFromUrl(string url) {
-		
-		string result = url.Remove (0, url.IndexOf ("watch?v="));
-		result = result.Replace ("watch?v=", "");
-		int indexOfIdEnd = result.IndexOf ("&");
-		if (indexOfIdEnd > -1)
-			result = result.Substring (0, indexOfIdEnd);
-
-		return result;
+	void OnVideoComplete (UnityEngine.Video.VideoPlayer source)
+	{
+		if (OnComplete != null)
+			OnComplete ();
 	}
 }

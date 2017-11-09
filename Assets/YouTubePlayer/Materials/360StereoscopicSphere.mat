@@ -8,7 +8,7 @@ Material:
   m_PrefabInternal: {fileID: 0}
   m_Name: 360StereoscopicSphere
   m_Shader: {fileID: 4800000, guid: c9bee9eba71cf154190a4a7fdd3e78c0, type: 3}
-  m_ShaderKeywords: _MAPPING_LATITUDE_LONGITUDE_LAYOUT _SWAPEYES_ON
+  m_ShaderKeywords: _MAPPING_LATITUDE_LONGITUDE_LAYOUT
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -25,10 +25,10 @@ Material:
     m_Floats:
     - _Exposure: 1
     - _ImageType: 0
-    - _Layout: 0
+    - _Layout: 2
     - _Mapping: 1
     - _MirrorOnBack: 0
     - _Rotation: 0
-    - _SwapEyes: 1
+    - _SwapEyes: 0
     m_Colors:
     - _Tint: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
