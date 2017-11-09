@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 114830625029939174}
   - component: {fileID: 114839806668019094}
   m_Layer: 0
-  m_Name: bgText
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -545,6 +545,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15285fcc231e6e643a8466d41d53a096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _doShowCursor: 0
 --- !u!114 &114055940269932568
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -602,7 +603,7 @@ MonoBehaviour:
     m_AlignByGeometry: 0
     m_RichText: 0
     m_HorizontalOverflow: 0
-    m_VerticalOverflow: 1
+    m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'We are glad to announce that Neon Seoul: Outrun was just released on Steam
     Early Access. Stop by & play!'
@@ -674,6 +675,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15285fcc231e6e643a8466d41d53a096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _doShowCursor: 0
 --- !u!114 &114364519497965856
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -797,6 +799,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15285fcc231e6e643a8466d41d53a096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _doShowCursor: 0
 --- !u!114 &114657492089793882
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -808,6 +811,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15285fcc231e6e643a8466d41d53a096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _doShowCursor: 0
 --- !u!114 &114658186377213504
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -866,6 +870,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15285fcc231e6e643a8466d41d53a096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _doShowCursor: 1
 --- !u!114 &114719689781734768
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -955,7 +960,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1028,6 +1033,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15285fcc231e6e643a8466d41d53a096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _doShowCursor: 0
 --- !u!114 &114982469246557496
 MonoBehaviour:
   m_ObjectHideFlags: 1

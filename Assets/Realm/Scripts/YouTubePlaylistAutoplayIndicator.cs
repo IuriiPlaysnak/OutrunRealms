@@ -22,19 +22,16 @@ public class YouTubePlaylistAutoplayIndicator : MonoBehaviour {
 
 	void OnAutoplayDeactivated ()
 	{
-		Debug.Log ("OnAutoplayDeactivated");
 		gameObject.SetActive (false);
 	}
 
 	void OnAutoplayActivated ()
 	{
-		Debug.Log ("OnAutoplayActivated");
 		gameObject.SetActive (true);
 	}
 
 	void OnAutoplayTime (int secondsLeft)
 	{
-		Debug.Log ("OnAutoplayTime " + secondsLeft);
 		_text.text = string.Format ("Next video in {0} sec", secondsLeft);
 	}
 

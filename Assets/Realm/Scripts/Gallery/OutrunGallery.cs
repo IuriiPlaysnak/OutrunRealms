@@ -17,6 +17,8 @@ public class OutrunGallery : MonoBehaviour {
 
 		Debug.Assert (_display != null, "Image not found");
 		Debug.Assert (_countTextField != null, "Text not found");
+
+		_display.enabled = false;
 	}
 
 	public void SetImages(List<string> imagesURLs) {
@@ -55,6 +57,7 @@ public class OutrunGallery : MonoBehaviour {
 
 	private void LoadImage(string url) {
 
+		_display.enabled = false;
 		_countTextField.text = string.Format ("{0} / {1}", _currentImage + 1, _imagesURLs.Count);
 
 		ResourceManager.LoadImage (url, OnImageLoaded);
@@ -67,5 +70,7 @@ public class OutrunGallery : MonoBehaviour {
 				, new Rect(0, 0, texture.width, texture.height)
 				, Vector2.zero
 			);
+
+		_display.enabled = true;
 	}
 }

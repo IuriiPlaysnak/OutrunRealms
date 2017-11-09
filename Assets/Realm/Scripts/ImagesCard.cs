@@ -30,22 +30,67 @@ public class ImagesCard : MonoBehaviour {
 		if (ii != null) {
 			ii.OnOver += OnOver;
 			ii.OnOut += OnOut;
+			ii.OnMoveOver += OnMoveOver;
+		}
+	}
+
+	void OnMoveOver (RaycastHit hit)
+	{
+		Vector3 localColliderSize;
+		Vector3 localHitPoint;
+
+		InteractiveItem.GetLocalHitData (hit, out localColliderSize, out localHitPoint);
+
+		Canvas.ForceUpdateCanvases ();
+
+		float y = (localHitPoint.y + localColliderSize.y / 2) / localColliderSize.y;
+
+		if (y < 0.2f) {
+			AnimateText(1080);
+
+		} else if(y > 0.9f) {
+			
+			AnimateText(200);
 		}
 
-		_description.SetActive (false);
+		Canvas.ForceUpdateCanvases ();
 	}
 
 	void OnOut ()
 	{
-		_description.SetActive (false);
+		AnimateText(0);
+		if (_autoplay != null)
+			_autoplay.enabled = true;
 	}
 
 	void OnOver ()
 	{
-		_description.SetActive (true);
-
+		AnimateText(200);
 		if (_autoplay != null)
 			_autoplay.enabled = false;
+	}
+
+	private Vector2 _newSize;
+	private bool _isAnimating;
+	private void AnimateText(float newHeight) {
+
+		_isAnimating = true;
+		_newSize = new Vector2 ((_description.transform as RectTransform).sizeDelta.x, newHeight);
+	}
+
+	private void AnimationUpdate() {
+
+		(_description.transform as RectTransform).sizeDelta = 
+			Vector2.Lerp(
+				(_description.transform as RectTransform).sizeDelta
+				, _newSize
+				, 0.1f
+			);
+
+		if (Vector2.Distance ((_description.transform as RectTransform).sizeDelta, _newSize) < 10) {
+			(_description.transform as RectTransform).sizeDelta = _newSize;
+			_isAnimating = false;
+		}
 	}
 
 	void OnPrevImage ()
@@ -65,6 +110,9 @@ public class ImagesCard : MonoBehaviour {
 
 	private bool _isLoaded;
 	void Update () {
+
+		if (_isAnimating)
+			AnimationUpdate ();
 
 		if (_isLoaded)
 			return;

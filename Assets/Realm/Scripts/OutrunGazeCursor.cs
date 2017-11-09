@@ -20,19 +20,8 @@ public class OutrunGazeCursor : MonoBehaviour {
 		_invisible.SetActive (false);
 	}
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
 	public void UpdateMode(Mode mode) {
 
-		Debug.Log ("Mode: " + mode);
 		_normal.SetActive (mode == Mode.NORMAL);
 		_timer.SetActive (mode == Mode.TIMER);
 		_invisible.SetActive (mode == Mode.INVISIBLE);
