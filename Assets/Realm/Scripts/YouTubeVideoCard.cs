@@ -63,37 +63,12 @@ public class YouTubeVideoCard : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		if (_interaction != null) {
-			_interaction.OnOver += OnOver;
-			_interaction.OnOut += OnOut;
-		}
-
 		_descriptionPanel.Hide ();
 
 		if(_videoURL != null && _videoURL != "") 
 			PlayVideo (YouTubeUtils.GetVideoIdFromUrl (_videoURL));
 	}
-
-	void OnOut ()
-	{
-//		_descriptionPanel.Show ();
-//		_playback.unityVideoPlayer.Pause ();
-	}
-
-//	private bool _isLoaded;
-	void OnOver ()
-	{
-//		_descriptionPanel.Hide ();
-//
-//		if (_isLoaded)
-//			_playback.unityVideoPlayer.Play ();
-//		else {
-//
-//			_isLoaded = true;
-//			_playback.PlayYoutubeVideo (GetVideoIdFromUrl (_videoURL));
-//		}
-	}
-
+		
 	public void PlayVideo(string videoId) {
 
 		if (OnPlay != null)

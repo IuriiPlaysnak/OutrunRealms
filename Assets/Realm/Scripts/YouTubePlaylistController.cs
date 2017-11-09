@@ -20,6 +20,7 @@ public class YouTubePlaylistController : MonoBehaviour {
 
 	private YoutubeAPIManager _youtubeManager;
 	private YoutubePlaylistItems[] _playlistItems;
+	private YouTubePlaylistAutoplay _autoplay;
 
 	private int _currentVideoIndex;
 
@@ -36,16 +37,29 @@ public class YouTubePlaylistController : MonoBehaviour {
 		_videoCard.OnPause += OnVideoPause;
 		_videoCard.OnComplete += OnVideoComplete;
 		_videoCard.OnPlay += OnVideoPlay;
+
+		_autoplay = gameObject.GetComponent<YouTubePlaylistAutoplay> ();
+		if (_autoplay != null) 
+			_autoplay.OnComplete += OnAutoplayComplete;
+	}
+
+	void OnAutoplayComplete ()
+	{
+		PlayNextVideo ();
 	}
 
 	void OnVideoComplete ()
 	{
 		gameObject.SetActive (true);
+		if (_autoplay != null)
+			_autoplay.Activate ();
 	}
 
 	void OnVideoPlay ()
 	{
 		gameObject.SetActive (false);
+		if (_autoplay != null)
+			_autoplay.Deactivate ();
 	}
 
 	void OnVideoPause ()
@@ -59,6 +73,9 @@ public class YouTubePlaylistController : MonoBehaviour {
 	}
 
 	void Start () {
+
+		if (_autoplay != null)
+			_autoplay.Deactivate ();
 
 		_youtubeManager.GetPlaylistItems (
 			YouTubeUtils.GetPlaylistIdFromUrl (_playlistUrl)
@@ -80,6 +97,13 @@ public class YouTubePlaylistController : MonoBehaviour {
 
 		_playlistItems = playlistItems;
 		PlayVideo (0);
+	}
+
+	private void PlayNextVideo() {
+		_currentVideoIndex++;
+		if (_currentVideoIndex > _playlistItems.Count () - 1)
+			_currentVideoIndex = 0;
+		PlayVideo (_currentVideoIndex);
 	}
 
 	private void PlayVideo(int videoListItemIndex) {

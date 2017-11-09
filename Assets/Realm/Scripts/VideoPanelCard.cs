@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class VideoPanelCard : MonoBehaviour {
 
-	private const int MAX_DESCRIPTION_TEXT_LENGTH = 340;
+	private const int MAX_DESCRIPTION_TEXT_LENGTH = 300;
 
 	[SerializeField]
 	private Text _title;
