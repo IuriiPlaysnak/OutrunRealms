@@ -1297,6 +1297,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114034456606045376, guid: 22e5581c3a990874aaaee41bbbe06b71,
+        type: 2}
+      propertyPath: _doShowCursor
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 65373582981584394, guid: 22e5581c3a990874aaaee41bbbe06b71,
+        type: 2}
+      propertyPath: m_Size.z
+      value: 0.05
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 22e5581c3a990874aaaee41bbbe06b71, type: 2}
   m_IsPrefabParent: 0
@@ -1586,6 +1596,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15285fcc231e6e643a8466d41d53a096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _doShowCursor: 1
 --- !u!65 &336910904
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2586,6 +2597,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15285fcc231e6e643a8466d41d53a096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _doShowCursor: 1
 --- !u!65 &656318733
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2819,6 +2831,31 @@ Prefab:
     - target: {fileID: 114836620929485242, guid: 7f49a2aae0d27ef49af1e6d92ce52f7f,
         type: 2}
       propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114525900832439910, guid: 7f49a2aae0d27ef49af1e6d92ce52f7f,
+        type: 2}
+      propertyPath: _doShowCursor
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114321353048718050, guid: 7f49a2aae0d27ef49af1e6d92ce52f7f,
+        type: 2}
+      propertyPath: _doShowCursor
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114657492089793882, guid: 7f49a2aae0d27ef49af1e6d92ce52f7f,
+        type: 2}
+      propertyPath: _doShowCursor
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114039552190240414, guid: 7f49a2aae0d27ef49af1e6d92ce52f7f,
+        type: 2}
+      propertyPath: _doShowCursor
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114951749362779624, guid: 7f49a2aae0d27ef49af1e6d92ce52f7f,
+        type: 2}
+      propertyPath: _doShowCursor
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -3986,6 +4023,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15285fcc231e6e643a8466d41d53a096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _doShowCursor: 1
 --- !u!65 &1293916827
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4149,6 +4187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15285fcc231e6e643a8466d41d53a096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _doShowCursor: 1
 --- !u!65 &1298067166
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4798,6 +4837,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15285fcc231e6e643a8466d41d53a096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _doShowCursor: 1
 --- !u!65 &1521016047
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6132,10 +6172,6 @@ Prefab:
     - target: {fileID: 4360660620189714, guid: bd00b2e764458f94e9ffef964600ce0a, type: 2}
       propertyPath: m_RootOrder
       value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1841791218492690, guid: bd00b2e764458f94e9ffef964600ce0a, type: 2}
-      propertyPath: m_Name
-      value: OutrunOVRCameraRig
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bd00b2e764458f94e9ffef964600ce0a, type: 2}

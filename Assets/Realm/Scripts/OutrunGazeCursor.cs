@@ -10,10 +10,14 @@ public class OutrunGazeCursor : MonoBehaviour {
 	[SerializeField]
 	private GameObject _timer;
 
+	[SerializeField]
+	private GameObject _invisible;
+
 	void Awake() {
 
 		_normal.SetActive (true);
 		_timer.SetActive (false);
+		_invisible.SetActive (false);
 	}
 
 	// Use this for initialization
@@ -28,8 +32,10 @@ public class OutrunGazeCursor : MonoBehaviour {
 
 	public void UpdateMode(Mode mode) {
 
+		Debug.Log ("Mode: " + mode);
 		_normal.SetActive (mode == Mode.NORMAL);
 		_timer.SetActive (mode == Mode.TIMER);
+		_invisible.SetActive (mode == Mode.INVISIBLE);
 	}
 
 	public void UpdateTimer(float progress) {
@@ -39,6 +45,7 @@ public class OutrunGazeCursor : MonoBehaviour {
 
 	public enum Mode {
 		NORMAL,
-		TIMER
+		TIMER,
+		INVISIBLE
 	}
 }

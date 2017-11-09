@@ -13,8 +13,15 @@ public class InteractiveItem : MonoBehaviour {
 	public event Action OnOut;
 	public event Action<RaycastHit> OnMoveOver;
 
+	[SerializeField]
+	private bool _doShowCursor = true;
+
 	public bool isClickable {
 		get { return OnClick != null; }
+	}
+
+	public bool doShowCursor {
+		get { return _doShowCursor; }
 	}
 
 	public void Click() {
