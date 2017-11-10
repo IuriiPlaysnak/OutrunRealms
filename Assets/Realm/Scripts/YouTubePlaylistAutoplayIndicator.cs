@@ -13,8 +13,8 @@ public class YouTubePlaylistAutoplayIndicator : MonoBehaviour {
 		if (autoplay != null) {
 			autoplay.OnComplete += OnAutoplayComplete;
 			autoplay.OnTime += OnAutoplayTime;
-			autoplay.OnActivated += OnAutoplayActivated;
-			autoplay.OnDeactivated += OnAutoplayDeactivated;
+			autoplay.OnStarted += OnAutoplayActivated;
+			autoplay.OnStopped += OnAutoplayDeactivated;
 		}
 
 		_text = gameObject.GetComponentInChildren<UnityEngine.UI.Text> ();

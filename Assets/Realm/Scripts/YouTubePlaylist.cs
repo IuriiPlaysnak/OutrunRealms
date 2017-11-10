@@ -61,13 +61,13 @@ public class YouTubePlaylist : MonoBehaviour {
 	void OnVideoComplete ()
 	{
 		_thumbnailsCanvas.enabled = true;
-		_autoplay.Activate ();
+		_autoplay.Start ();
 	}
 
 	void OnVideoPlay ()
 	{
 		_thumbnailsCanvas.enabled = false;
-		_autoplay.Deactivate ();
+		_autoplay.Stop ();
 	}
 
 	void OnVideoPause ()
@@ -82,7 +82,7 @@ public class YouTubePlaylist : MonoBehaviour {
 
 	void Start () {
 
-		_autoplay.Deactivate ();
+		_autoplay.Stop ();
 	}
 
 	public void LoadPlaylist(string url) {

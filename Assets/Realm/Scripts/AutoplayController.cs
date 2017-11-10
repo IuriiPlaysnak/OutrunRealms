@@ -7,21 +7,21 @@ public class AutoplayController : MonoBehaviour {
 	[SerializeField]
 	private float _delay = 3f;
 
+	public event System.Action OnStarted;
+	public event System.Action OnStopped;
 	public event System.Action OnComplete;
 	public event System.Action<float> OnProgress;
 	public event System.Action<int> OnTime;
-	public event System.Action OnActivated;
-	public event System.Action OnDeactivated;
-	
+
 	// Update is called once per frame
 	void Update () {
 
-		if (_isActivated) {
+		if (_isTimeTicking) {
 
 			_timer -= Time.deltaTime;
 			if (_timer <= 0) {
 
-				Deactivate ();
+				Stop ();
 				if (OnComplete != null)
 					OnComplete ();
 				
@@ -36,21 +36,29 @@ public class AutoplayController : MonoBehaviour {
 		}
 	}
 
-	private bool _isActivated;
+	private bool _isTimeTicking;
 	private float _timer;
 
-	public void Activate() {
+	public void Start() {
 
 		_timer = _delay;
-		_isActivated = true;
-		if (OnActivated != null)
-			OnActivated ();
+		_isTimeTicking = true;
+		if (OnStarted != null)
+			OnStarted ();
 	}
 
-	public void Deactivate() {
-		_isActivated = false;
-		if (OnDeactivated != null)
-			OnDeactivated ();
+	public void Stop() {
+		_isTimeTicking = false;
+		if (OnStopped != null)
+			OnStopped ();
+	}
+
+	public void Pause() {
+		_isTimeTicking = false;
+	}
+
+	public void Resume() {
+		_isTimeTicking = true;
 	}
 
 	public float delay {

@@ -4,9 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class OutrunGallery : MonoBehaviour {
-
-	private const float DEFAULT_AUTOPLAY_DELAY = 5f;
-
+	
 	[SerializeField]
 	private RawImage _display;
 
@@ -16,7 +14,8 @@ public class OutrunGallery : MonoBehaviour {
 	[SerializeField]
 	private Text _description;
 
-	private AutoplayController _autoplay;
+	public event System.Action OnImageReady;
+
 	private int _currentImage;
 
 	void Awake() {
@@ -26,20 +25,6 @@ public class OutrunGallery : MonoBehaviour {
 		Debug.Assert (_description != null, "Description text field is missing");
 
 		_display.enabled = false;
-
-		_autoplay = gameObject.GetComponent<AutoplayController> ();
-		if (_autoplay == null) {
-			_autoplay = gameObject.AddComponent<AutoplayController> ();
-			_autoplay.delay = DEFAULT_AUTOPLAY_DELAY;
-		}
-
-		_autoplay.OnComplete += OnAutoplayComplete;
-		_autoplay.Deactivate ();
-	}
-
-	void OnAutoplayComplete ()
-	{
-		NextImage ();
 	}
 
 	private List<OutrunRealmDataProvider.ImageData> _images;
@@ -69,8 +54,6 @@ public class OutrunGallery : MonoBehaviour {
 
 	public void PrevImage() {
 
-		_autoplay.Deactivate ();
-
 		_currentImage--;
 		if (_currentImage < 0)
 			_currentImage = _images.Count - 1;
@@ -83,8 +66,6 @@ public class OutrunGallery : MonoBehaviour {
 		if (_images == null || _images.Count == 0)
 			return;
 
-		_autoplay.Deactivate ();
-
 		_currentImage++;
 		if (_currentImage > _images.Count - 1)
 			_currentImage = 0;
@@ -96,6 +77,8 @@ public class OutrunGallery : MonoBehaviour {
 	{
 		_display.texture = texture;
 		_display.enabled = true;
-		_autoplay.Activate ();
+
+		if (OnImageReady != null)
+			OnImageReady ();
 	}
 }
