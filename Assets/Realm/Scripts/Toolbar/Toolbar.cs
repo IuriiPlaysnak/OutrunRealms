@@ -4,56 +4,68 @@ using UnityEngine;
 
 public class Toolbar : MonoBehaviour {
 
-	private const float SHOW_DELAY = .5f;
+	protected const float HIDE_DELAY = .5f;
+
+	protected InteractiveItem _interaction;
 
 	void Awake() {
 
-		foreach (InteractiveItem ii in gameObject.GetComponentsInChildren<InteractiveItem>()) {
-			
-			ii.OnOver += OnOver;
-			ii.OnOut += OnOut;
+		Init ();
+	}
+
+	virtual protected void Init() {
+		
+		_interaction = gameObject.GetComponent<InteractiveItem> ();
+
+		if (_interaction != null) {
+			_interaction.OnOver += OnToolbarOver;
+			_interaction.OnOut += OnToolbarOut;
 		}
+
+		Hide (false);
 	}
 
 	// Update is called once per frame
 	void Update () {
 
-		if (_timer > 0f) {
+		if (_isWaitingForHide) {
+			
 			_timer -= Time.deltaTime;
-
-			if (_timer <= 0f) {
-				
-				Diactivate ();
-			}
+			if (_timer <= 0f)			
+				Hide (false);
 		}
 	}
 
-	void OnOut ()
-	{
-		Hide (true);
-	}
+	private float _timer;
+	protected bool _isWaitingForHide;
 
-	void OnOver ()
-	{
-		Show ();
-	}
+	virtual public void Show() {
 
-	public void Show() {
-
-		_timer = -1f;
+		_isWaitingForHide = false;
 		gameObject.SetActive (true);
 	}
 
-	private float _timer;
-	public void Hide(bool isDelayed) {
+	virtual public void Hide(bool isDelayed) {
+
+		_isWaitingForHide = isDelayed;
 
 		if (isDelayed)
-			_timer = SHOW_DELAY;
+			_timer = HIDE_DELAY;
 		else
 			Diactivate ();
 	}
 
-	private void Diactivate() {
+	virtual protected void Diactivate() {
 		gameObject.SetActive (false);
+	}
+
+	virtual protected void OnToolbarOver() {
+
+		Show ();
+	}
+
+	virtual protected void OnToolbarOut() {
+
+		Hide (true);
 	}
 }

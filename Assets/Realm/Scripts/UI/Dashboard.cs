@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Dashboard : MonoBehaviour {
 
+	private const float DISTANCE_BETWEEN_CARDS = 1f;
+
     public DashboardCard[] cards;
 
 	// Use this for initialization
@@ -44,7 +46,7 @@ public class Dashboard : MonoBehaviour {
 
 			card.transform.localRotation = Quaternion.LookRotation (card.transform.localPosition - Vector3.zero);
 
-            previousWidth = card.GetScreenspaceWidth() + 0.5f;
+			previousWidth = card.GetScreenspaceWidth() + DISTANCE_BETWEEN_CARDS;
             previousMergePoint = card.transform.localPosition + Vector3.Normalize(Quaternion.AngleAxis(90, Vector3.up) * card.transform.localPosition) * card.GetScreenspaceWidth() / 2;
         }
         transform.localRotation = Quaternion.AngleAxis(-angle / 2, Vector3.up);
