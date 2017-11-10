@@ -121,7 +121,6 @@ public class ImagesCard : MonoBehaviour {
 			return;
 
 		_isLoaded = true;
-		_gallery.SetImages (OutrunRealmDataProvider.galleryData.images);
-		_gallery.Show ();
+		_gallery.SetImages (OutrunRealmDataProvider.galleryData.images, true);
 	}
 }

@@ -78,6 +78,9 @@ public class OutrunRealmHTMLDataSource : IOutrunRealmDataSource {
 	private List<OutrunRealmDataProvider.GalleryData> _galleries;
 	private void ParseGallery(XElement gallery) {
 
+		Debug.LogError ("Imaplement new parsing method");
+
+		/*
 		_galleries = new List<OutrunRealmDataProvider.GalleryData> ();
 		OutrunRealmDataProvider.GalleryData data = new OutrunRealmDataProvider.GalleryData ();
 		data.title = gallery.Attribute("data-title").Value ?? "No title";
@@ -93,6 +96,7 @@ public class OutrunRealmHTMLDataSource : IOutrunRealmDataSource {
 		data.thumbnailImageURL = gallery.Attribute("data-thumbnail").Value ?? data.images [0];
 
 		_galleries.Add (data);
+		*/
 	}
 
 

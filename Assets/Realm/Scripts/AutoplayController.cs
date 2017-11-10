@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class YouTubePlaylistAutoplay : MonoBehaviour {
+public class AutoplayController : MonoBehaviour {
 
 	[SerializeField]
 	private float _delay = 3f;
@@ -51,5 +51,10 @@ public class YouTubePlaylistAutoplay : MonoBehaviour {
 		_isActivated = false;
 		if (OnDeactivated != null)
 			OnDeactivated ();
+	}
+
+	public float delay {
+		get { return _delay; }
+		set { _delay = value; }
 	}
 }

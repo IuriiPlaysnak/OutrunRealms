@@ -29,8 +29,12 @@ public class OutrunGalleryView : MonoBehaviour {
 		if (OutrunRealmDataProvider.isLoadingComlete == false)
 			return;
 
-		_gallery.SetImages (OutrunRealmDataProvider.galleryData.images);
+		Debug.LogError ("No implementation");
+
+		/*
+		_gallery.SetImages (OutrunRealmDataProvider.galleryData.images, false);
 		_galleryGO.SetActive (true);
 		_gallery.Show ();
+		*/
 	}
 }

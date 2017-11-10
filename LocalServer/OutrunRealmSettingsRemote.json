@@ -11,11 +11,11 @@
 		"thumbnailImageURL":"http://blog.playsnak.com/wp-content/uploads/2016/10/blog_smallimage01.png",
 		"images":
 		[
-			"http://hayabu4i.com/realms/images/image01.png",
-			"http://hayabu4i.com/realms/images/image02.png",
-			"http://hayabu4i.com/realms/images/image03.png",
-			"http://hayabu4i.com/realms/images/image04.png",
-			"http://hayabu4i.com/realms/images/image05.png"
+			{"title":"Image title 1", "description":"Image description 1", "url":"http://hayabu4i.com/realms/images/image01.png"},
+			{"title":"Image title 2", "description":"Image description 2", "url":"http://hayabu4i.com/realms/images/image02.png"},
+			{"title":"Image title 3", "description":"Image description 3", "url":"http://hayabu4i.com/realms/images/image03.png"},
+			{"title":"Image title 4", "description":"Image description 4", "url":"http://hayabu4i.com/realms/images/image04.png"},
+			{"title":"Image title 5", "description":"Image description 5", "url":"http://hayabu4i.com/realms/images/image05.png"},
 		]
 	}
 }

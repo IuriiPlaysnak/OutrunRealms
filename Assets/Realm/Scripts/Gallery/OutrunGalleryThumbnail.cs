@@ -7,7 +7,9 @@ public class OutrunGalleryThumbnail : OutrunRealmThumbnail {
 	protected override void OnDataLoaded ()
 	{
 		base.OnDataLoaded ();
-		titleTextField.text = OutrunRealmDataProvider.galleryData.title;
-		LoadImage (OutrunRealmDataProvider.galleryData.thumbnailImageURL);
+		Debug.LogError ("No implementation");
+
+//		titleTextField.text = OutrunRealmDataProvider.galleryData.title;
+//		LoadImage (OutrunRealmDataProvider.galleryData.thumbnailImageURL);
 	}
 }

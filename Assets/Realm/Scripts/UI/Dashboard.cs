@@ -23,9 +23,9 @@ public class Dashboard : MonoBehaviour {
             {
                 angle += thisAngle + Mathf.Atan2(previousWidth, 2 * DashboardRadius) * Mathf.Rad2Deg;
             }
-            Vector3 direction = Quaternion.AngleAxis(angle, Vector3.up) * Vector3.forward;
+            
+			Vector3 direction = Quaternion.AngleAxis(angle, Vector3.up) * Vector3.forward;
             card.transform.localPosition = Vector3.Normalize(direction) * DashboardRadius;
-            card.transform.LookAt(Vector3.zero);
 
             Vector3 thisMerge = card.transform.localPosition + Vector3.Normalize(Quaternion.AngleAxis(-90, Vector3.up) * card.transform.localPosition) * card.GetScreenspaceWidth() / 2;
             float distOfMergePoints = (previousMergePoint - thisMerge).magnitude;
@@ -33,16 +33,16 @@ public class Dashboard : MonoBehaviour {
             {
                 float tooLong = Mathf.Sin(thisAngle * Mathf.Deg2Rad) * distOfMergePoints;
                 float factor = 1 - (2 * tooLong / card.GetScreenspaceWidth());
-                //card.transform.localScale = card.transform.localScale * factor;
-
+           
                 card.SetScreenspaceWidth(card.GetScreenspaceWidth() * (2 - factor));
                 angle -= thisAngle;
                 thisAngle = Mathf.Atan2(card.GetScreenspaceWidth(), 2 * DashboardRadius) * Mathf.Rad2Deg;
                 angle += thisAngle;
                 direction = Quaternion.AngleAxis(angle, Vector3.up) * Vector3.forward;
                 card.transform.localPosition = Vector3.Normalize(direction) * DashboardRadius * factor;
-                card.transform.LookAt(Vector3.zero);
             }
+
+			card.transform.localRotation = Quaternion.LookRotation (card.transform.localPosition - Vector3.zero);
 
             previousWidth = card.GetScreenspaceWidth() + 0.5f;
             previousMergePoint = card.transform.localPosition + Vector3.Normalize(Quaternion.AngleAxis(90, Vector3.up) * card.transform.localPosition) * card.GetScreenspaceWidth() / 2;

@@ -2,16 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class YouTubeVideoCard : MonoBehaviour {
+public class YouTubeVideoPlayer : MonoBehaviour {
 
 	[SerializeField]
 	private string _videoURL;
 
 	[SerializeField]
 	private VideoPanelCard _contentPanel;
-
-	[SerializeField]
-	private VideoDescriptionPanel _descriptionPanel;
 
 	[SerializeField]
 	private List<InteractiveItem> _playPauseButtons;
@@ -63,8 +60,6 @@ public class YouTubeVideoCard : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		_descriptionPanel.Hide ();
-
 		if(_videoURL != null && _videoURL != "") 
 			PlayVideo (YouTubeUtils.GetVideoIdFromUrl (_videoURL));
 	}
@@ -83,14 +78,6 @@ public class YouTubeVideoCard : MonoBehaviour {
 	private void OnVideoDataLoaded(YoutubeData data) {
 
 		_contentPanel.ShowContent (
-			new VideoPanelCard.VideoDescriptionContent () 
-			{
-				title =  data.snippet.title
-				, description = data.snippet.description
-			}
-		);
-
-		_descriptionPanel.ShowContent (
 			new VideoPanelCard.VideoDescriptionContent () 
 			{
 				title =  data.snippet.title

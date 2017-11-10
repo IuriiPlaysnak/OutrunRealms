@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4409390377284726}
   - component: {fileID: 114586760876411680}
-  - component: {fileID: 114536347353051346}
+  - component: {fileID: 114769919512314336}
   m_Layer: 0
   m_Name: VideoPlaylist
   m_TagString: Untagged
@@ -200,6 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15285fcc231e6e643a8466d41d53a096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _doShowCursor: 1
 --- !u!114 &114214151765412718
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -237,6 +238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15285fcc231e6e643a8466d41d53a096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _doShowCursor: 1
 --- !u!114 &114312654807409894
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -345,18 +347,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fdcd2b6255f61448861b5b82a2bc987, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114536347353051346
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1231691069749706}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdf6970fea49a0d41ab8bbe97144e92f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _delay: 3
 --- !u!114 &114586760876411680
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -368,7 +358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66c3559e39ec5524fafe3c41d013300b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playlistUrl: https://www.youtube.com/watch?v=jmNXPsXeAOI&list=PL1IyZHckaHoyx3FoDpS1D9oX2x5mkj3CO
+  _playlistUrl: 
   _maxNumberOfItemsInPlaylist: 10
   _videoCard: {fileID: 0}
   _thumbnails:
@@ -386,6 +376,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fdcd2b6255f61448861b5b82a2bc987, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114769919512314336
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1231691069749706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 202977784f73ab045b718b6eee4cdd69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _delay: 3
 --- !u!114 &114800879935559710
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -397,6 +399,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15285fcc231e6e643a8466d41d53a096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _doShowCursor: 1
 --- !u!114 &114825430540420368
 MonoBehaviour:
   m_ObjectHideFlags: 1

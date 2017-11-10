@@ -159,22 +159,33 @@ public class OutrunRealmDataProvider : MonoBehaviour {
 	}
 
 	[System.Serializable]
+	public struct PlaylistData {
+		public string url;
+	}
+
+	[System.Serializable]
 	public struct VideosData {
 
 		public List<VideoData> videos;
+		public List<PlaylistData> playlists;
 	}
 
 	[System.Serializable]
 	public struct GalleryData {
 
-		public string title;
-		public string thumbnailImageURL;
-		public List<string> images;
-
+		public List<ImageData> images;
 		public override string ToString ()
 		{
-			return string.Format ("[GalleryData]: title = {0}, image = {1}", title, thumbnailImageURL);
+			return string.Format ("[GalleryData]: count = {0}", images.Count);
 		}
+	}
+
+	[System.Serializable]
+	public struct ImageData {
+
+		public string title;
+		public string description;
+		public string url;
 	}
 
 	[System.Serializable]

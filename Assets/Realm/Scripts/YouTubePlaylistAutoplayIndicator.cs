@@ -8,7 +8,7 @@ public class YouTubePlaylistAutoplayIndicator : MonoBehaviour {
 
 	void Awake() {
 
-		YouTubePlaylistAutoplay autoplay = gameObject.GetComponentInParent<YouTubePlaylistAutoplay> ();
+		AutoplayController autoplay = gameObject.GetComponentInParent<AutoplayController> ();
 
 		if (autoplay != null) {
 			autoplay.OnComplete += OnAutoplayComplete;

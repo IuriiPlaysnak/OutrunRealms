@@ -4,7 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
 
-public class YouTubePlaylistController : MonoBehaviour {
+public class YouTubePlaylist : MonoBehaviour {
+
+	private const float DEFAULT_AUTOPLAY_DELAY = 3f;
 
 	[SerializeField]
 	private string _playlistUrl;
@@ -13,14 +15,17 @@ public class YouTubePlaylistController : MonoBehaviour {
 	private int _maxNumberOfItemsInPlaylist = 10;
 
 	[SerializeField]
-	private YouTubeVideoCard _videoCard;
+	private YouTubeVideoPlayer _videoCard;
+
+	[SerializeField]
+	private Canvas _thumbnailsCanvas;
 
 	[SerializeField]
 	private List<YouTubeVideoThumbnail> _thumbnails;
 
 	private YoutubeAPIManager _youtubeManager;
 	private YoutubePlaylistItems[] _playlistItems;
-	private YouTubePlaylistAutoplay _autoplay;
+	private AutoplayController _autoplay;
 
 	private int _currentVideoIndex;
 
@@ -38,9 +43,14 @@ public class YouTubePlaylistController : MonoBehaviour {
 		_videoCard.OnComplete += OnVideoComplete;
 		_videoCard.OnPlay += OnVideoPlay;
 
-		_autoplay = gameObject.GetComponent<YouTubePlaylistAutoplay> ();
-		if (_autoplay != null) 
-			_autoplay.OnComplete += OnAutoplayComplete;
+		_autoplay = gameObject.GetComponent<AutoplayController> ();
+		if (_autoplay != null) {
+
+			_autoplay = gameObject.AddComponent<AutoplayController> ();
+			_autoplay.delay = DEFAULT_AUTOPLAY_DELAY;
+		}
+
+		_autoplay.OnComplete += OnAutoplayComplete;
 	}
 
 	void OnAutoplayComplete ()
@@ -50,21 +60,19 @@ public class YouTubePlaylistController : MonoBehaviour {
 
 	void OnVideoComplete ()
 	{
-		gameObject.SetActive (true);
-		if (_autoplay != null)
-			_autoplay.Activate ();
+		_thumbnailsCanvas.enabled = true;
+		_autoplay.Activate ();
 	}
 
 	void OnVideoPlay ()
 	{
-		gameObject.SetActive (false);
-		if (_autoplay != null)
-			_autoplay.Deactivate ();
+		_thumbnailsCanvas.enabled = false;
+		_autoplay.Deactivate ();
 	}
 
 	void OnVideoPause ()
 	{
-		gameObject.SetActive (true);
+		_thumbnailsCanvas.enabled = true;
 	}
 
 	void OnThumbnailClick (YouTubeVideoThumbnail.Data data)
@@ -74,11 +82,13 @@ public class YouTubePlaylistController : MonoBehaviour {
 
 	void Start () {
 
-		if (_autoplay != null)
-			_autoplay.Deactivate ();
+		_autoplay.Deactivate ();
+	}
 
+	public void LoadPlaylist(string url) {
+		
 		_youtubeManager.GetPlaylistItems (
-			YouTubeUtils.GetPlaylistIdFromUrl (_playlistUrl)
+			YouTubeUtils.GetPlaylistIdFromUrl (url)
 			, _maxNumberOfItemsInPlaylist
 			, OnListData
 		);
