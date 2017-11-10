@@ -1,21 +1,61 @@
 {
-	"newsData" : 
-	{
-		"title":"About Playsnak",
-		"imageURL":"http://blog.playsnak.com/wp-content/uploads/2016/10/blog_smallimage02.png",
-		"link":"https://playsnak.com/story.html"
-	},
 	"galleryData":
 	{
-		"title":"Gallery",
-		"thumbnailImageURL":"http://blog.playsnak.com/wp-content/uploads/2016/10/blog_smallimage01.png",
 		"images":
 		[
-			{"title":"Image title 1", "description":"Image description 1", "url":"http://hayabu4i.com/realms/images/image01.png"},
-			{"title":"Image title 2", "description":"Image description 2", "url":"http://hayabu4i.com/realms/images/image02.png"},
-			{"title":"Image title 3", "description":"Image description 3", "url":"http://hayabu4i.com/realms/images/image03.png"},
-			{"title":"Image title 4", "description":"Image description 4", "url":"http://hayabu4i.com/realms/images/image04.png"},
-			{"title":"Image title 5", "description":"Image description 5", "url":"http://hayabu4i.com/realms/images/image05.png"},
+			{
+				"title":"1. We’re out to take VR to new places", 
+				"description":"At Playsnak, we really like virtual reality. We couldn’t be more passionate about the possibilities of the medium, and we’ve assembled a team that can make magic happen. We’ve got developers and creative leads who’ve helped shape some of the most notable VR experiences to date, including The Climb – the top-selling VR game on Oculus Rift and a title that Kotaku called ‘the best game in VR’ – and Robinson: The Journey; praised as ‘the kind of experience VR headsets were designed for’ and the ‘best looking game on VR’. Those are just some of the places our team has been, and we can’t wait to show you where we’re going next.", 
+				"url":"http://hayabu4i.com/realms/images/image01.png"
+			},
+			{
+				"title":"2. People seem to like what we’re doing", 
+				"description":"As a start-up, it’s our job to convince investors that we’re worth backing – and we’ve had the great privilege of doing that successfully to the tune of $2.5 million since we were founded in 2015. We’re extremely grateful for the support of gumi Inc. and K Cube Ventures in our quest to make unforgettable VR experiences, and we hope that when you take a closer look at what we’re working on you’ll be right behind us too (although you don’t have to give us $2.5 million, don’t worry).", 
+				"url":"http://hayabu4i.com/realms/images/image02.png"
+			},
+			{
+				"title":"3. We’re as versatile as a Swiss Army Knife", 
+				"description":"Here at Playsnak, we don’t like to limit ourselves. Our ambitions in VR span AAA games for premium devices, location-based arcade VR, multiple games set in a single universe, and VR ports of 3rd-party titles. We’re also passionate about mobile and the part it will play in the future of VR – so we’ll also be acting as a publisher for great mobile games from talented partners. It might sound like a lot, but our team of 20 people (and counting) has worked across so many game genres, platforms and business models that we feel like it would be silly to shackle ourselves to just one way of working.", 
+				"url":"http://hayabu4i.com/realms/images/image03.png"
+			},
+			{
+				"title":"4. Playsnak Realms", 
+				"description":"We’re planning on bringing a whole lot of VR goodness into the world, and we figured you should be able to access all of it in one convenient place – a place we call Playsnak Realms. Playsnak Realms is a virtual reality eco-system that connects our players to a world of possibility, and will become a hub for launching and buying games, checking out 360° videos, 3D objects, stereoscopic screenshots, and much more. It’s your portal into the world of Playsnak, and a starting point for amazing VR adventures. To help make Playsnak Realms a reality, we’ve teamed up with Rocketbike ARVR, an insanely innovative crew who have blown us away with their work on booomVR, a user-friendly, real-time platform that aggregates all the latest and best VR and 3D content on the web. You can read the full press release about our collaboration here.", 
+				"url":"http://hayabu4i.com/realms/images/image04.png"
+			},
+			{
+				"title":"5. We’ve got something awesome to show you…", 
+				"description":"Alright, we’re bending the rules a little here, because technically you’ll have to wait slightly beyond gamescom to find out full details of what we’re working on right now. What we can say, is that we’ll be officially announcing our first VR game and giving you a proper look at what it has in store at Oculus Connect this October. But if you’re simply too curious to wait that long, or you’re still mad at us for breaching the sanctity of the sacred list, here’s a little exclusive just for you: Our upcoming IP is called Shaman: Spirithunter, and we think you’re going to like it…", 
+				"url":"http://hayabu4i.com/realms/images/image05.png"
+			}
+		]
+	},
+	"videosData": 
+	{
+		"playlists":
+		[
+			{
+				"url":"https://www.youtube.com/watch?v=HXbsVbFAczg&list=PLejxjGnOuLXWhrWmWjffhGfgZB1-gQ9PC"
+			}
+		],
+
+		"videos":
+		[
+			{
+				"title": "Introducing Facebook 360 for Gear VR",
+				"description": "Ever since 360 photos and videos came to Facebook, people around the world have embraced these new formats. 360 can take you into the action with your favorite sports teams, bring you behind the scenes at awards shows, transport you to beautiful places around the world, and put you at the center of breaking news moments like never before.",
+				"url": "https://www.youtube.com/watch?v=RHFVeawBok4"
+			},
+			{
+				"title": "Green Day - American Idiot [OFFICIAL VIDEO]",
+				"description": "Watch Green Day's official video for 'American Idiot'",
+				"url": "https://www.youtube.com/watch?v=Ee_uujKuJMI"
+			},
+			{
+				"title": "Mobile VR Jam 2015 - SOCIAL VR",
+				"description": "Discovering social networks in VR http://vrjam.challengepost.com/submis...",
+				"url": "https://www.youtube.com/watch?v=c44eVcq5gWI"
+			}
 		]
 	}
 }

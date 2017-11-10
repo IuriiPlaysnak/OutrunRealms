@@ -6,6 +6,10 @@ public class ImagesCard : MonoBehaviour {
 
 	private const float DEFAULT_AUTOPLAY_DELAY = 5f;
 
+	private const float FULL_TEXT_HEIGHT = 1080;
+	private const float SHORT_TEXT_HEIGHT = 200;
+	private const float HIDDEN_TEXT_HEIGHT = 0;
+
 	[SerializeField]
 	private InteractiveItem _nextButton;
 
@@ -117,11 +121,11 @@ public class ImagesCard : MonoBehaviour {
 		float y = (localHitPoint.y + localColliderSize.y / 2) / localColliderSize.y;
 
 		if (y < 0.2f) {
-			AnimateText(1080);
+			AnimateText(FULL_TEXT_HEIGHT);
 
 		} else if(y > 0.9f) {
 
-			AnimateText(200);
+			AnimateText(SHORT_TEXT_HEIGHT);
 		}
 
 		Canvas.ForceUpdateCanvases ();
@@ -130,13 +134,13 @@ public class ImagesCard : MonoBehaviour {
 	void OnOut ()
 	{
 		_autoplay.Resume ();
-		AnimateText(0);
+		AnimateText(HIDDEN_TEXT_HEIGHT);
 	}
 
 	void OnOver ()
 	{
 		_autoplay.Pause ();
-		AnimateText(200);
+		AnimateText(SHORT_TEXT_HEIGHT);
 	}
 
 	void OnPrevImage ()

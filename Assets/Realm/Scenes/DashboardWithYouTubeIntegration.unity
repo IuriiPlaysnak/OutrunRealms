@@ -371,7 +371,7 @@ MonoBehaviour:
   cards:
   - {fileID: 1521016044}
   - {fileID: 1007821165}
-  - {fileID: 243988872}
+  - {fileID: 405731785}
   - {fileID: 336910898}
   - {fileID: 1298067163}
 --- !u!4 &105365293
@@ -519,6 +519,7 @@ MonoBehaviour:
   _nextButton: {fileID: 1832053313}
   _prevButton: {fileID: 1133568365}
   _description: {fileID: 442725285}
+  _autoplayTime: {fileID: 477228465}
 --- !u!114 &117062671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1390,22 +1391,6 @@ MonoBehaviour:
   _contentPanel: {fileID: 1007821170}
   _playPauseButtons:
   - {fileID: 2055971084}
---- !u!114 &243988872
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114364519497965856, guid: 7f49a2aae0d27ef49af1e6d92ce52f7f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 653097140}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0cb235405c1df946b95c2a4d31ce673, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 1
-  canvasDimensions: {fileID: 1355596982}
-  _toolbar: {fileID: 0}
-  _flipAnimation: {fileID: 0}
 --- !u!1 &259636897
 GameObject:
   m_ObjectHideFlags: 0
@@ -2056,6 +2041,7 @@ GameObject:
   m_Component:
   - component: {fileID: 405731783}
   - component: {fileID: 405731784}
+  - component: {fileID: 405731785}
   m_Layer: 0
   m_Name: VideosCard
   m_TagString: Untagged
@@ -2070,7 +2056,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 405731782}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.99, y: 0, z: 0}
+  m_LocalPosition: {x: -1.23, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1371491462}
@@ -2091,6 +2077,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playlist: {fileID: 55005319}
   _player: {fileID: 243988869}
+--- !u!114 &405731785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 405731782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0cb235405c1df946b95c2a4d31ce673, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
+  canvasDimensions: {fileID: 1355596982}
+  _toolbar: {fileID: 0}
+  _flipAnimation: {fileID: 0}
 --- !u!1 &442725285
 GameObject:
   m_ObjectHideFlags: 0
@@ -2962,7 +2963,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 243988868}
-  - component: {fileID: 243988872}
   - component: {fileID: 653097142}
   - component: {fileID: 653097141}
   - component: {fileID: 243988869}
@@ -3977,7 +3977,7 @@ GameObject:
   - component: {fileID: 924930695}
   - component: {fileID: 1007821170}
   m_Layer: 0
-  m_Name: VideoContentPanel
+  m_Name: VideoAdditionalContentCard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
