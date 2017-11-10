@@ -99,7 +99,7 @@ public class YouTubePlaylist : MonoBehaviour {
 		if (Vector3.Distance (gameObject.transform.position, _videoCard.transform.position) > 0.2f) {
 			
 			gameObject.transform.rotation = _videoCard.transform.rotation;
-			gameObject.transform.position = _videoCard.transform.position + gameObject.transform.forward * 0.2f;
+			gameObject.transform.position = _videoCard.transform.position - gameObject.transform.forward * 0.2f;
 		}
 	}
 
