@@ -12,7 +12,7 @@ public class RealmToolbarWithStaticButtons : MonoBehaviour {
 
 	void Awake() {
 
-		InteractiveItem interaction = gameObject.GetComponent<InteractiveItem> ();
+		RealmInteractiveItem interaction = gameObject.GetComponent<RealmInteractiveItem> ();
 
 		if (interaction != null) {
 			interaction.OnOver += OnOver;

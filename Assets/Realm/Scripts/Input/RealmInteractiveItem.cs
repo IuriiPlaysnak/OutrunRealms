@@ -5,7 +5,7 @@ using System;
 
 [RequireComponent (typeof(Collider))]
 
-public class InteractiveItem : MonoBehaviour {
+public class RealmInteractiveItem : MonoBehaviour {
 
 	public event Action OnClick;
 	public event Action OnBack;

@@ -11,7 +11,7 @@ public class YouTubeVideoPlayer : MonoBehaviour {
 	private VideoPanelCard _contentPanel;
 
 	[SerializeField]
-	private List<InteractiveItem> _playPauseButtons;
+	private List<RealmInteractiveItem> _playPauseButtons;
 
 	public event System.Action OnPlay;
 	public event System.Action OnPause;
@@ -19,11 +19,11 @@ public class YouTubeVideoPlayer : MonoBehaviour {
 
 	private YouTubePlayback _playback;
 	private YoutubeAPIManager _youtubeManager;
-	private InteractiveItem _interaction;
+	private RealmInteractiveItem _interaction;
 
 	void Awake() {
 
-		_interaction = gameObject.GetComponent<InteractiveItem> ();
+		_interaction = gameObject.GetComponent<RealmInteractiveItem> ();
 
 		_playback = gameObject.GetComponentInChildren<YouTubePlayback> ();
 		Debug.Assert (_playback != null, "Playback is missing");

@@ -17,7 +17,7 @@ public class RealmGazeController : MonoBehaviour {
 	private float _focusTimer;
 	private bool _isFocusConsumed;
 	private bool _isOver;
-	private InteractiveItem _lastInteraction;
+	private RealmInteractiveItem _lastInteraction;
 
 	// Update is called once per frame
 	void Update () {
@@ -35,7 +35,7 @@ public class RealmGazeController : MonoBehaviour {
 			_cursor.transform.position = hit.point;
 			_cursor.transform.rotation = Quaternion.LookRotation (hit.normal);
 
-			InteractiveItem ii = hit.collider.GetComponent<InteractiveItem> ();
+			RealmInteractiveItem ii = hit.collider.GetComponent<RealmInteractiveItem> ();
 
 			if (ii == null)
 				return;
@@ -112,25 +112,25 @@ public class RealmGazeController : MonoBehaviour {
 		}
 	}
 
-	private void Click(InteractiveItem item) {
+	private void Click(RealmInteractiveItem item) {
 
 		if(item != null)
 			item.Click ();
 	}
 
-	private void MoveOver(InteractiveItem item, RaycastHit hit) {
+	private void MoveOver(RealmInteractiveItem item, RaycastHit hit) {
 		
 		if (item != null)
 			item.MoveOver (hit);
 	}
 
-	private void Out(InteractiveItem item) {
+	private void Out(RealmInteractiveItem item) {
 
 		if (item != null)
 			item.Out ();
 	}
 
-	private void Over(InteractiveItem item) {
+	private void Over(RealmInteractiveItem item) {
 
 		if (item != null)
 			item.Over ();

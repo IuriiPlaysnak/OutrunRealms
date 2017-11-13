@@ -9,7 +9,7 @@ public class PlayPauseButton : MonoBehaviour {
 	void Awake() {
 
 		_text = gameObject.GetComponentInChildren<UnityEngine.UI.Text> ();
-		InteractiveItem ii = gameObject.GetComponent<InteractiveItem> ();
+		RealmInteractiveItem ii = gameObject.GetComponent<RealmInteractiveItem> ();
 
 		if(ii != null)
 			ii.OnClick += OnClick;

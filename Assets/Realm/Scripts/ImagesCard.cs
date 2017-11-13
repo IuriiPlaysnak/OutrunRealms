@@ -11,10 +11,10 @@ public class ImagesCard : MonoBehaviour {
 	private const float HIDDEN_TEXT_HEIGHT = 0;
 
 	[SerializeField]
-	private InteractiveItem _nextButton;
+	private RealmInteractiveItem _nextButton;
 
 	[SerializeField]
-	private InteractiveItem _prevButton;
+	private RealmInteractiveItem _prevButton;
 
 	[SerializeField]
 	private GameObject _description;
@@ -71,7 +71,7 @@ public class ImagesCard : MonoBehaviour {
 		_nextButton.OnClick += OnNextImage;
 		_prevButton.OnClick += OnPrevImage;
 
-		InteractiveItem ii = gameObject.GetComponent<InteractiveItem> ();
+		RealmInteractiveItem ii = gameObject.GetComponent<RealmInteractiveItem> ();
 		if (ii != null) {
 			ii.OnOver += OnOver;
 			ii.OnOut += OnOut;
@@ -102,7 +102,7 @@ public class ImagesCard : MonoBehaviour {
 		Vector3 localColliderSize;
 		Vector3 localHitPoint;
 
-		InteractiveItem.GetLocalHitData (hit, out localColliderSize, out localHitPoint);
+		RealmInteractiveItem.GetLocalHitData (hit, out localColliderSize, out localHitPoint);
 
 		Canvas.ForceUpdateCanvases ();
 

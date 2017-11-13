@@ -15,7 +15,7 @@ public class NewsScroll : MonoBehaviour {
 
 	void Awake() {
 
-		InteractiveItem ii = gameObject.GetComponent<InteractiveItem> ();
+		RealmInteractiveItem ii = gameObject.GetComponent<RealmInteractiveItem> ();
 		if (ii != null) {
 			ii.OnMoveOver += OnMoveOver;
 			ii.OnOut += OnOut;

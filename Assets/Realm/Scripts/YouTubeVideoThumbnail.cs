@@ -16,7 +16,7 @@ public class YouTubeVideoThumbnail : MonoBehaviour {
 		_display = gameObject.GetComponent<RawImage> ();
 		Debug.Assert (_display != null, "Display image is missing");
 
-		InteractiveItem ii = gameObject.GetComponent<InteractiveItem> ();
+		RealmInteractiveItem ii = gameObject.GetComponent<RealmInteractiveItem> ();
 
 		if (ii != null) {
 			ii.OnClick += 
