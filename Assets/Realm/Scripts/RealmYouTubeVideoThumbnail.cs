@@ -4,12 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent (typeof(RawImage))]
-public class YouTubeVideoThumbnail : MonoBehaviour {
+public class RealmYouTubeVideoThumbnail : MonoBehaviour {
 
-	public event System.Action<YouTubeVideoThumbnail.Data> OnClick;
+	public event System.Action<RealmYouTubeVideoThumbnail.Data> OnClick;
 
 	private RawImage _display;
-	private YouTubeVideoThumbnail.Data _data;
+	private RealmYouTubeVideoThumbnail.Data _data;
 
 	void Awake() {
 

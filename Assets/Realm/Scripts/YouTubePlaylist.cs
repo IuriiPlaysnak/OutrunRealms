@@ -18,7 +18,7 @@ public class YouTubePlaylist : MonoBehaviour {
 	private YouTubeVideoPlayer _videoCard;
 
 	[SerializeField]
-	private List<YouTubeVideoThumbnail> _thumbnails;
+	private List<RealmYouTubeVideoThumbnail> _thumbnails;
 
 	private YoutubeAPIManager _youtubeManager;
 	private YoutubePlaylistItems[] _playlistItems;
@@ -139,7 +139,7 @@ public class YouTubePlaylist : MonoBehaviour {
 		SetThumbnailsVisibility (true);
 	}
 
-	void OnThumbnailClick (YouTubeVideoThumbnail.Data data)
+	void OnThumbnailClick (RealmYouTubeVideoThumbnail.Data data)
 	{
 		PlayVideo (data.videoIndexInPlaylist);
 	}
