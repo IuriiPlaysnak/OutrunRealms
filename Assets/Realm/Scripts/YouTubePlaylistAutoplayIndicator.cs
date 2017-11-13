@@ -8,7 +8,7 @@ public class YouTubePlaylistAutoplayIndicator : MonoBehaviour {
 
 	void Awake() {
 
-		AutoplayController autoplay = gameObject.GetComponentInParent<AutoplayController> ();
+		RealmAutoplayController autoplay = gameObject.GetComponentInParent<RealmAutoplayController> ();
 
 		if (autoplay != null) {
 			autoplay.OnTime += OnAutoplayTime;

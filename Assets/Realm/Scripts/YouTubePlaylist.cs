@@ -22,7 +22,7 @@ public class YouTubePlaylist : MonoBehaviour {
 
 	private YoutubeAPIManager _youtubeManager;
 	private YoutubePlaylistItems[] _playlistItems;
-	private AutoplayController _autoplay;
+	private RealmAutoplayController _autoplay;
 
 	private int _currentVideoIndex;
 
@@ -32,10 +32,10 @@ public class YouTubePlaylist : MonoBehaviour {
 		if (_youtubeManager == null)
 			_youtubeManager = gameObject.AddComponent<YoutubeAPIManager> ();
 
-		_autoplay = gameObject.GetComponent<AutoplayController> ();
+		_autoplay = gameObject.GetComponent<RealmAutoplayController> ();
 		if (_autoplay != null) {
 
-			_autoplay = gameObject.AddComponent<AutoplayController> ();
+			_autoplay = gameObject.AddComponent<RealmAutoplayController> ();
 			_autoplay.delay = DEFAULT_AUTOPLAY_DELAY;
 		}
 	}

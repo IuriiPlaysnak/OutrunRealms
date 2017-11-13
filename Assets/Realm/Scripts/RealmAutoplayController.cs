@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AutoplayController : MonoBehaviour {
+public class RealmAutoplayController : MonoBehaviour {
 
 	[SerializeField]
 	private float _delay = 3f;

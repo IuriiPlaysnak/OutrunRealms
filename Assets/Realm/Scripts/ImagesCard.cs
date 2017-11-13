@@ -23,16 +23,16 @@ public class ImagesCard : MonoBehaviour {
 	private UnityEngine.UI.Text _autoplayTime;
 
 	private RealmGallery _gallery;
-	private AutoplayController _autoplay;
+	private RealmAutoplayController _autoplay;
 
 	void Awake() {
 
 		_gallery = gameObject.GetComponent<RealmGallery> ();
 		Debug.Assert (_gallery != null, "Gallery is missing");
 
-		_autoplay = gameObject.GetComponent<AutoplayController> ();
+		_autoplay = gameObject.GetComponent<RealmAutoplayController> ();
 		if (_autoplay == null) {
-			_autoplay = gameObject.AddComponent<AutoplayController> ();
+			_autoplay = gameObject.AddComponent<RealmAutoplayController> ();
 			_autoplay.delay = DEFAULT_AUTOPLAY_DELAY;
 		}
 	}
