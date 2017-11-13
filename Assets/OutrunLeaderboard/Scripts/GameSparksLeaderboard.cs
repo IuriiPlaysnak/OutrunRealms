@@ -40,6 +40,12 @@ public class GameSparksLeaderboard : MonoBehaviour {
 		_instance.GetLeaderboard ();
 	}
 
+	static public void GetDistanceLeaderboardAroundMe(OnLeaderboardResponse callback) {
+
+		_instance.onLeaderbpardLoadedCallback = callback;
+		_instance.GetLeaderboardArroundMe ();
+	}
+
 	static public void SavePlayerDistance(int distance) {
 
 		_instance.AddDistanceEntry (distance);
@@ -166,6 +172,38 @@ public class GameSparksLeaderboard : MonoBehaviour {
 	}
 
 	private void OnLeaderboardDataResponse(GameSparks.Api.Responses.LeaderboardDataResponse response) {
+
+		if (response.HasErrors == true) {
+
+			Debug.LogError (response.Errors.JSON);
+
+
+		} else {
+
+			List<DistanceEntry> entries = new List<DistanceEntry> ();
+
+			foreach (var item in response.Data) {
+
+				DistanceEntry entry = JsonUtility.FromJson<DistanceEntry>(item.JSONString);
+				entries.Add (entry);
+			}
+
+			ReturnLeaderboardEntries (entries);
+		}
+	}
+
+	private void GetLeaderboardArroundMe () {
+
+		if (_isReady == false) 
+			ReturnLeaderboardEntries (null);
+
+		new GameSparks.Api.Requests.AroundMeLeaderboardRequest ()
+			.SetEntryCount (_leaderboardEntriesCount)
+			.SetLeaderboardShortCode (_leaderboardName)
+			.Send (OnLeaderboardAroundMeDataResponse);
+	}
+
+	private void OnLeaderboardAroundMeDataResponse(GameSparks.Api.Responses.AroundMeLeaderboardResponse response) {
 
 		if (response.HasErrors == true) {
 
