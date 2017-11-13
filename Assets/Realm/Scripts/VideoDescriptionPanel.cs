@@ -23,7 +23,7 @@ public class VideoDescriptionPanel : MonoBehaviour {
 		
 	}
 
-	public void ShowContent(VideoPanelCard.VideoDescriptionContent content) {
+	public void ShowContent(RealmVideoContentCard.VideoDescriptionContent content) {
 
 		_title.text = content.title;
 		_desription.text = FormatDescription (content.description);

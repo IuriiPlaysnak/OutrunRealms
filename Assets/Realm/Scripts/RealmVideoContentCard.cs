@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class VideoPanelCard : MonoBehaviour {
+public class RealmVideoContentCard : MonoBehaviour {
 
 	private const int MAX_DESCRIPTION_TEXT_LENGTH = 300;
 

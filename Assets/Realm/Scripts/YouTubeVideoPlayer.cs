@@ -8,7 +8,7 @@ public class YouTubeVideoPlayer : MonoBehaviour {
 	private string _videoURL;
 
 	[SerializeField]
-	private VideoPanelCard _contentPanel;
+	private RealmVideoContentCard _contentPanel;
 
 	[SerializeField]
 	private List<RealmInteractiveItem> _playPauseButtons;
@@ -78,7 +78,7 @@ public class YouTubeVideoPlayer : MonoBehaviour {
 	private void OnVideoDataLoaded(YoutubeData data) {
 
 		_contentPanel.ShowContent (
-			new VideoPanelCard.VideoDescriptionContent () 
+			new RealmVideoContentCard.VideoDescriptionContent () 
 			{
 				title =  data.snippet.title
 				, description = data.snippet.description
