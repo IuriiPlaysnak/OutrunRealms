@@ -5,7 +5,7 @@ using UnityEngine;
 public class RealmVideoCard : MonoBehaviour {
 
 	[SerializeField]
-	private YouTubePlaylist _playlist;
+	private RealmYouTubePlaylist _playlist;
 
 	[SerializeField]
 	private YouTubeVideoPlayer _player;

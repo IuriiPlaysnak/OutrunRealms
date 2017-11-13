@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
 
-public class YouTubePlaylist : MonoBehaviour {
+public class RealmYouTubePlaylist : MonoBehaviour {
 
 	private const float DEFAULT_AUTOPLAY_DELAY = 3f;
 
