@@ -46,6 +46,7 @@ public class YouTubePlaylist : MonoBehaviour {
 	void Start () {
 
 		_autoplay.Stop ();
+		AfterDataLoadedInit = InitInteractions;
 	}
 
 	public void LoadPlaylist(string url) {
@@ -66,7 +67,11 @@ public class YouTubePlaylist : MonoBehaviour {
 		}
 	}
 
+	private System.Action AfterDataLoadedInit;
 	private void OnListDataLoaded(YoutubePlaylistItems[] playlistItems) {
+
+		if (AfterDataLoadedInit != null)
+			AfterDataLoadedInit ();
 
 		_playlistItems = playlistItems;
 		PlayVideo (0);
@@ -99,11 +104,9 @@ public class YouTubePlaylist : MonoBehaviour {
 		}
 	}
 
-	private bool _isInteractionsInitialized;
 	private void InitInteractions() {
 
-		if (_isInteractionsInitialized)
-			return;
+		AfterDataLoadedInit = null;
 
 		foreach (var thumbnail in _thumbnails) {
 			thumbnail.OnClick += OnThumbnailClick;
