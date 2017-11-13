@@ -18,12 +18,12 @@ public class ResourceManager : MonoBehaviour {
 			Destroy (this.gameObject);
 	}
 
-	static private Dictionary<string, System.Action<Texture2D>> _texturesByCallback;
+	static private Dictionary<string, List<System.Action<Texture2D>>> _texturesByCallback;
 	static private Dictionary<string, Texture2D> _imagesByURLs;
 	static public void LoadImage(string url, System.Action<Texture2D> onLoadigComplete) {
 
 		if (_texturesByCallback == null)
-			_texturesByCallback = new Dictionary<string, System.Action<Texture2D>> ();
+			_texturesByCallback = new Dictionary<string, List<System.Action<Texture2D>>> ();
 
 		if (_imagesByURLs == null)
 			_imagesByURLs = new Dictionary<string, Texture2D> ();
@@ -33,7 +33,13 @@ public class ResourceManager : MonoBehaviour {
 			onLoadigComplete (_imagesByURLs [url]);
 		} else {
 
-			_texturesByCallback.Add (url, onLoadigComplete);
+			if (_texturesByCallback.ContainsKey (url) == false)
+				_texturesByCallback.Add(url, new List<Action<Texture2D>>());
+			else
+				Debug.Log ("duplicate " + url);
+			
+			_texturesByCallback[url].Add(onLoadigComplete);
+
 			_instance.StartCoroutine (_instance.LoadImageCoroutine (url));
 		}
 	}
@@ -51,10 +57,20 @@ public class ResourceManager : MonoBehaviour {
 		}
 		else {
 
-			_imagesByURLs.Add (request.url, request.texture);
+			if(_imagesByURLs.ContainsKey(request.url) == false)
+				_imagesByURLs.Add (request.url, request.texture);
 
-			_texturesByCallback [request.url] (request.texture);
-			_texturesByCallback.Remove (request.url);
+			if (_texturesByCallback.ContainsKey (request.url)) {
+
+				while (_texturesByCallback [request.url].Count > 0) {
+					_texturesByCallback [request.url] [0] (request.texture);
+					_texturesByCallback [request.url].RemoveAt (0); 
+				}
+
+			} else {
+
+				Debug.LogError("No callback " + request.url);
+			}
 		}
 	}
 
