@@ -19,39 +19,9 @@ public class DashboardCard : MonoBehaviour {
     {
         screenspaceWidth = transform.localScale.x * canvasDimensions.rect.width * canvasDimensions.localScale.x;
 
-		InteractiveItem ii = gameObject.GetComponent<InteractiveItem> ();
-		if (ii != null) {
-
-			ii.OnOver += OnOver;
-			ii.OnOut += OnOut;
-		}
-
 		if(_toolbar != null)
 			_toolbar.Hide (false);
     }
-
-	void OnOut ()
-	{
-//		Debug.Log(this + ": OnOut");
-//		if(_toolbar != null)
-//			_toolbar.Hide (true);
-//
-//		iTween.MoveBy(
-//			gameObject, 
-//			iTween.Hash(
-//				"position", Vector3.one * -0.5f, 
-//				"space", Space.Self,
-//				"time", 0.5f
-//			)
-//		);
-	}
-
-	void OnOver ()
-	{
-//		Debug.Log(this + ": OnOver");
-//		if(_toolbar != null)
-//			_toolbar.Show();
-	}
 
 	private bool _isFrontShown = true;
 
