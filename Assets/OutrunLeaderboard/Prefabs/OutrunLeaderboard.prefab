@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114621640438990226}
   - component: {fileID: 114533217981544564}
   m_Layer: 0
-  m_Name: Leaderboard
+  m_Name: OutrunLeaderboard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -88,5 +88,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5136ecd1b7fcf35468e9b83fdcc9a0e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _userNameAs: 0
   _leaderboardName: LONGEST_DISTANCE
   _leaderboardEntriesCount: 5

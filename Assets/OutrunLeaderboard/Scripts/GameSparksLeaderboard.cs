@@ -32,6 +32,8 @@ public class GameSparksLeaderboard : MonoBehaviour {
 
 	private bool _isReady;
 
+	private RealmOculusPlatformManager _oculusPlatformManager;
+
 	static public void GetDistanceLeaderboard(OnLeaderboardResponse callback) {
 
 		_instance.onLeaderbpardLoadedCallback = callback;
@@ -58,7 +60,10 @@ public class GameSparksLeaderboard : MonoBehaviour {
 
 			case UserNameSource.OCULUS_USER:
 
-
+				_oculusPlatformManager = gameObject.GetComponent<RealmOculusPlatformManager> ();
+				if (_oculusPlatformManager == null)
+					_oculusPlatformManager = gameObject.AddComponent<RealmOculusPlatformManager> ();
+				
 				break;
 
 			case UserNameSource.COMPUTER_NAME:
@@ -78,6 +83,17 @@ public class GameSparksLeaderboard : MonoBehaviour {
 	void Start() {
 
 		_isReady = false;
+
+		if (_userNameAs == UserNameSource.OCULUS_USER)
+			_oculusPlatformManager.LoadData (OnOculusUserData);
+		else
+			Registration ();
+	}
+
+	private void OnOculusUserData(string playerName, string displayName) {
+		
+		_playerName = playerName;
+		_displayName = displayName;
 		Registration ();
 	}
 
