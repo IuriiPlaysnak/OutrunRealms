@@ -29,6 +29,43 @@ public class ImagesCard : MonoBehaviour {
 
 		_gallery = gameObject.GetComponent<OutrunGallery> ();
 		Debug.Assert (_gallery != null, "Gallery is missing");
+
+		_autoplay = gameObject.GetComponent<AutoplayController> ();
+		if (_autoplay == null) {
+			_autoplay = gameObject.AddComponent<AutoplayController> ();
+			_autoplay.delay = DEFAULT_AUTOPLAY_DELAY;
+		}
+	}
+
+	private System.Action AfterDataLoadedInit;
+	void Start () {
+
+		_autoplay.Stop ();
+		AfterDataLoadedInit = InitInteractions;
+		StartCoroutine (Init ());
+	}
+
+	private IEnumerator Init() {
+
+		while (OutrunRealmDataProvider.isLoadingComlete == false)
+			yield return null;
+
+		if (AfterDataLoadedInit != null)
+			AfterDataLoadedInit ();
+
+		_gallery.SetImages (OutrunRealmDataProvider.galleryData.images, true);
+	}
+
+	void Update () {
+
+		if (_isAnimating)
+			AnimationUpdate ();
+	}
+
+	private void InitInteractions() {
+
+		AfterDataLoadedInit = null;
+
 		_gallery.OnImageReady += OnGalleryImageLoaded;
 
 		_nextButton.OnClick += OnNextImage;
@@ -41,57 +78,8 @@ public class ImagesCard : MonoBehaviour {
 			ii.OnMoveOver += OnMoveOver;
 		}
 
-		_autoplay = gameObject.GetComponent<AutoplayController> ();
-		if (_autoplay == null) {
-			_autoplay = gameObject.AddComponent<AutoplayController> ();
-			_autoplay.delay = DEFAULT_AUTOPLAY_DELAY;
-		}
-
 		_autoplay.OnComplete += OnAutoplayComplete;
-		_autoplay.OnTime += _autoplay_OnTime;
-	}
-		
-	void Start () {
-
-		_autoplay.Stop ();
-		StartCoroutine (Init ());
-	}
-
-	private IEnumerator Init() {
-
-		while (OutrunRealmDataProvider.isLoadingComlete == false)
-			yield return null;
-
-		_gallery.SetImages (OutrunRealmDataProvider.galleryData.images, true);
-	}
-
-	void Update () {
-
-		if (_isAnimating)
-			AnimationUpdate ();
-	}
-
-	private Vector2 _newSize;
-	private bool _isAnimating;
-	private void AnimateText(float newHeight) {
-
-		_isAnimating = true;
-		_newSize = new Vector2 ((_description.transform as RectTransform).sizeDelta.x, newHeight);
-	}
-
-	private void AnimationUpdate() {
-
-		(_description.transform as RectTransform).sizeDelta = 
-			Vector2.Lerp(
-				(_description.transform as RectTransform).sizeDelta
-				, _newSize
-				, 0.1f
-			);
-
-		if (Vector2.Distance ((_description.transform as RectTransform).sizeDelta, _newSize) < 10) {
-			(_description.transform as RectTransform).sizeDelta = _newSize;
-			_isAnimating = false;
-		}
+		_autoplay.OnTime += OnAutoplayTimeUpdate;
 	}
 
 	void OnGalleryImageLoaded ()
@@ -99,7 +87,7 @@ public class ImagesCard : MonoBehaviour {
 		_autoplay.Start ();
 	}
 
-	void _autoplay_OnTime (int secondsLeft)
+	void OnAutoplayTimeUpdate (int secondsLeft)
 	{
 		_autoplayTime.text = string.Format ("Next image in {0} sec", secondsLeft);
 	}
@@ -153,5 +141,29 @@ public class ImagesCard : MonoBehaviour {
 	{
 		_autoplay.Stop ();
 		_gallery.NextImage ();
+	}
+
+
+	private Vector2 _newSize;
+	private bool _isAnimating;
+	private void AnimateText(float newHeight) {
+
+		_isAnimating = true;
+		_newSize = new Vector2 ((_description.transform as RectTransform).sizeDelta.x, newHeight);
+	}
+
+	private void AnimationUpdate() {
+
+		(_description.transform as RectTransform).sizeDelta = 
+			Vector2.Lerp(
+				(_description.transform as RectTransform).sizeDelta
+				, _newSize
+				, 0.1f
+			);
+
+		if (Vector2.Distance ((_description.transform as RectTransform).sizeDelta, _newSize) < 10) {
+			(_description.transform as RectTransform).sizeDelta = _newSize;
+			_isAnimating = false;
+		}
 	}
 }
