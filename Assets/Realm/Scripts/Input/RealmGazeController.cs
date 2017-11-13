@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GazeController : MonoBehaviour {
+public class RealmGazeController : MonoBehaviour {
 
 
 	[SerializeField]

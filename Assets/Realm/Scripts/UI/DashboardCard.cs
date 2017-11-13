@@ -11,16 +11,9 @@ public class DashboardCard : MonoBehaviour {
     public float GetScreenspaceWidth() { return screenspaceWidth; }
     public void SetScreenspaceWidth(float newWidth) { screenspaceWidth = newWidth; }
 
-	[SerializeField]
-	private Toolbar _toolbar;
-
-
     void Awake()
     {
         screenspaceWidth = transform.localScale.x * canvasDimensions.rect.width * canvasDimensions.localScale.x;
-
-		if(_toolbar != null)
-			_toolbar.Hide (false);
     }
 
 	private bool _isFrontShown = true;

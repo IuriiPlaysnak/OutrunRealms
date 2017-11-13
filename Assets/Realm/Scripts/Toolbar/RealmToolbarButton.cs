@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ToolbarButton : MonoBehaviour {
+public class RealmToolbarButton : MonoBehaviour {
 
 	private const float HIDE_DELAY = .2f;
 

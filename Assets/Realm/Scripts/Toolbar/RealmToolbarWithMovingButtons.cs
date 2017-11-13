@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ToolbarWithMovingButtons : MonoBehaviour {
+public class RealmToolbarWithMovingButtons : MonoBehaviour {
 
 	private const float SHOW_DELAY = .2f;
 
@@ -31,7 +31,7 @@ public class ToolbarWithMovingButtons : MonoBehaviour {
 			ii.OnOut += OnOut;
 		}
 
-		foreach (var toolbar in GameObject.FindObjectsOfType<ToolbarWithMovingButtons>()) {
+		foreach (var toolbar in GameObject.FindObjectsOfType<RealmToolbarWithMovingButtons>()) {
 			InteractiveItem ii = toolbar.GetComponent<InteractiveItem> ();
 			ii.OnOver += OnOver;
 			ii.OnOut += OnOut;

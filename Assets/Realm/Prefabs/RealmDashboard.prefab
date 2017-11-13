@@ -1835,7 +1835,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   canvasDimensions: {fileID: 224685230801375124}
-  _toolbar: {fileID: 0}
   _flipAnimation: {fileID: 111623789487823756}
 --- !u!114 &114329619601388696
 MonoBehaviour:
@@ -1927,7 +1926,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   canvasDimensions: {fileID: 224561343213671020}
-  _toolbar: {fileID: 0}
   _flipAnimation: {fileID: 0}
 --- !u!114 &114392187047783026
 MonoBehaviour:
@@ -2418,7 +2416,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 3
   canvasDimensions: {fileID: 224177903443330800}
-  _toolbar: {fileID: 0}
   _flipAnimation: {fileID: 0}
 --- !u!114 &114762518624677354
 MonoBehaviour:

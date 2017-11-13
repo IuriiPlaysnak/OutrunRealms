@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ToolbarWithStaticButtons : MonoBehaviour {
+public class RealmToolbarWithStaticButtons : MonoBehaviour {
 
 	[SerializeField]
 	private RectTransform _buttonPlaceholder;
 
 	[SerializeField]
-	private List<ToolbarButton> _buttons;
+	private List<RealmToolbarButton> _buttons;
 
 	void Awake() {
 
