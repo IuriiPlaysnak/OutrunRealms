@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ImagesCard : MonoBehaviour {
+public class RealmImagesCard : MonoBehaviour {
 
 	private const float DEFAULT_AUTOPLAY_DELAY = 5f;
 
