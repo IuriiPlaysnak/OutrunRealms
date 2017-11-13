@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayPauseButton : MonoBehaviour {
+public class RealmPlayPauseButton : MonoBehaviour {
 
 	private UnityEngine.UI.Text _text;
 
