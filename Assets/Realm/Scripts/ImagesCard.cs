@@ -22,12 +22,12 @@ public class ImagesCard : MonoBehaviour {
 	[SerializeField]
 	private UnityEngine.UI.Text _autoplayTime;
 
-	private OutrunGallery _gallery;
+	private RealmGallery _gallery;
 	private AutoplayController _autoplay;
 
 	void Awake() {
 
-		_gallery = gameObject.GetComponent<OutrunGallery> ();
+		_gallery = gameObject.GetComponent<RealmGallery> ();
 		Debug.Assert (_gallery != null, "Gallery is missing");
 
 		_autoplay = gameObject.GetComponent<AutoplayController> ();
