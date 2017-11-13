@@ -7,6 +7,14 @@ public class GameSparksLeaderboard : MonoBehaviour {
 	private const string USER_NAME_ERROR_KEY = "USERNAME";
 	private const string USER_NAME_TAKEN_ERROR_VALUE = "TAKEN";
 
+	private enum UserNameSource {
+		COMPUTER_NAME,
+		OCULUS_USER
+	}
+
+	[SerializeField]
+	private UserNameSource _userNameAs;
+
 	[SerializeField]
 	private string _leaderboardName = "DISTANCE_LEADER";
 
@@ -18,8 +26,8 @@ public class GameSparksLeaderboard : MonoBehaviour {
 	public delegate void OnLeaderboardResponse(List<DistanceEntry> leaderboardEntries);
 	protected OnLeaderboardResponse onLeaderbpardLoadedCallback;
 
-	private string _displayName = System.Environment.UserName;
-	private string _playerName = System.Environment.UserName;
+	private string _displayName;
+	private string _playerName;
 	private string _password = "";
 
 	private bool _isReady;
@@ -40,11 +48,27 @@ public class GameSparksLeaderboard : MonoBehaviour {
 	}
 
 	void Awake() {
-		
+
 		if (_instance == null) {
 
 			_instance = this;
 			DontDestroyOnLoad(this.gameObject);
+
+			switch (_userNameAs) {
+
+			case UserNameSource.OCULUS_USER:
+
+
+				break;
+
+			case UserNameSource.COMPUTER_NAME:
+			default:
+
+				_displayName = System.Environment.UserName;
+				_playerName = System.Environment.UserName;
+				break;
+			}
+
 		} else {
 			
 			Destroy(this.gameObject);

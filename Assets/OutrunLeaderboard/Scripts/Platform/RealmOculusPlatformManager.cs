@@ -4,9 +4,7 @@ using Oculus.Platform;
 using Oculus.Platform.Models;
 using System.Collections;
 
-public class CustomPlatformManager : MonoBehaviour {
-
-//	public OvrAvatar myAvatar;
+public class RealmOculusPlatformManager : MonoBehaviour {
 
 	void Awake () {
 		Oculus.Platform.Core.Initialize();
@@ -17,6 +15,7 @@ public class CustomPlatformManager : MonoBehaviour {
 	private void GetLoggedInUserCallback(Message<User> message) {
 		if (!message.IsError) {
 //			myAvatar.oculusUserID = message.Data.ID;
+			Debug.Log(message.Data.ID);
 		}
 	}
 }
