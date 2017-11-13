@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Dashboard : MonoBehaviour {
+public class RealmDashboard : MonoBehaviour {
 
 	private const float DISTANCE_BETWEEN_CARDS = 1f;
 
-    public DashboardCard[] cards;
+	public RealmDashboardCard[] cards;
 
 	// Use this for initialization
 
@@ -18,7 +18,7 @@ public class Dashboard : MonoBehaviour {
         //Place cards on a circle with a distance from one another based on theire length
         //the angle (a) between too cards depends on the length (x1, x2) of the cards
         // a = cot(x1/2r)+cot(x2/2r)
-        foreach (DashboardCard card in cards)
+		foreach (RealmDashboardCard card in cards)
         {
             float thisAngle = Mathf.Atan2(card.GetScreenspaceWidth(), 2 * DashboardRadius) * Mathf.Rad2Deg;
             if (previousWidth != 0)

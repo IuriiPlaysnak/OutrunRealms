@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DashboardCard : MonoBehaviour {
+public class RealmDashboardCard : MonoBehaviour {
 
     public enum CardType { News, Video, Video360, Images, ThreeD, Custom};
     public CardType type;
