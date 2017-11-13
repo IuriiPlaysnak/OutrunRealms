@@ -15,7 +15,7 @@ public class RealmYouTubePlaylist : MonoBehaviour {
 	private int _maxNumberOfItemsInPlaylist = 10;
 
 	[SerializeField]
-	private YouTubeVideoPlayer _videoCard;
+	private RealmYouTubeVideoPlayer _player;
 
 	[SerializeField]
 	private List<RealmYouTubeVideoThumbnail> _thumbnails;
@@ -58,10 +58,10 @@ public class RealmYouTubePlaylist : MonoBehaviour {
 
 	void Update() {
 
-		if (Vector3.Distance (gameObject.transform.position, _videoCard.transform.position) > 0.2f) {
+		if (Vector3.Distance (gameObject.transform.position, _player.transform.position) > 0.2f) {
 			
-			gameObject.transform.rotation = _videoCard.transform.rotation;
-			gameObject.transform.position = _videoCard.transform.position - gameObject.transform.forward * 0.2f;
+			gameObject.transform.rotation = _player.transform.rotation;
+			gameObject.transform.position = _player.transform.position - gameObject.transform.forward * 0.2f;
 		}
 	}
 
@@ -85,7 +85,7 @@ public class RealmYouTubePlaylist : MonoBehaviour {
 	private void PlayVideo(int videoListItemIndex) {
 
 		_currentVideoIndex = videoListItemIndex;
-		_videoCard.PlayVideo (_playlistItems [_currentVideoIndex].videoId);
+		_player.PlayVideo (_playlistItems [_currentVideoIndex].videoId);
 
 		int nextItemIndex = _currentVideoIndex + 1;
 
@@ -110,9 +110,9 @@ public class RealmYouTubePlaylist : MonoBehaviour {
 			thumbnail.OnClick += OnThumbnailClick;
 		}
 
-		_videoCard.OnPause += OnVideoPause;
-		_videoCard.OnComplete += OnVideoComplete;
-		_videoCard.OnPlay += OnVideoPlay;
+		_player.OnPause += OnVideoPause;
+		_player.OnComplete += OnVideoComplete;
+		_player.OnPlay += OnVideoPlay;
 
 		_autoplay.OnComplete += OnAutoplayComplete;
 	}

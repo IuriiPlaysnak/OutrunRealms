@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class YouTubeVideoPlayer : MonoBehaviour {
+public class RealmYouTubeVideoPlayer : MonoBehaviour {
 
 	[SerializeField]
 	private string _videoURL;

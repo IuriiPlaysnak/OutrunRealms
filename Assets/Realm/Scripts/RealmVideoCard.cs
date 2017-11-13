@@ -8,7 +8,7 @@ public class RealmVideoCard : MonoBehaviour {
 	private RealmYouTubePlaylist _playlist;
 
 	[SerializeField]
-	private YouTubeVideoPlayer _player;
+	private RealmYouTubeVideoPlayer _player;
 
 	void Awake() {
 
