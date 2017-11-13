@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VideoCard : MonoBehaviour {
+public class RealmVideoCard : MonoBehaviour {
 
 	[SerializeField]
 	private YouTubePlaylist _playlist;
