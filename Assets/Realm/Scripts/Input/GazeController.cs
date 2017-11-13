@@ -14,12 +14,10 @@ public class GazeController : MonoBehaviour {
 	private const float CLICK_TIMER = 0.5f;
 
 	private bool _isFocusing;
-	private float _timer;
+	private float _focusTimer;
 	private bool _isFocusConsumed;
 	private bool _isOver;
 	private InteractiveItem _lastInteraction;
-
-	private List<RaycastHit> _lastHits = new List<RaycastHit> ();
 
 	// Update is called once per frame
 	void Update () {
@@ -45,7 +43,7 @@ public class GazeController : MonoBehaviour {
 			if (ii != _lastInteraction) {
 			
 				_isOver = false;
-				_timer = 0f;
+				_focusTimer = 0f;
 				_isFocusConsumed = false;
 				_isFocusing = false;
 				Out (_lastInteraction);
@@ -75,24 +73,24 @@ public class GazeController : MonoBehaviour {
 				if (_isFocusing == false) {
 
 					_isFocusing = true;
-					_timer = CLICK_TIMER;
+					_focusTimer = CLICK_TIMER;
 
 				} else {
 
 					_cursor.UpdateMode (OutrunGazeCursor.Mode.TIMER);
 
-					_timer -= Time.deltaTime;
+					_focusTimer -= Time.deltaTime;
 
-					if (_timer <= 0f) {
+					if (_focusTimer <= 0f) {
 
 						_isFocusConsumed = true;
-						_timer = 0f;
+						_focusTimer = 0f;
 						Click (_lastInteraction);
 						_cursor.UpdateMode (OutrunGazeCursor.Mode.NORMAL);
 					}
 				}
 
-				_cursor.UpdateTimer (_timer);
+				_cursor.UpdateTimer (_focusTimer);
 			}
 
 		} else {

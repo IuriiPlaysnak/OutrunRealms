@@ -11,7 +11,6 @@ public class YouTubePlaylistAutoplayIndicator : MonoBehaviour {
 		AutoplayController autoplay = gameObject.GetComponentInParent<AutoplayController> ();
 
 		if (autoplay != null) {
-			autoplay.OnComplete += OnAutoplayComplete;
 			autoplay.OnTime += OnAutoplayTime;
 			autoplay.OnStarted += OnAutoplayActivated;
 			autoplay.OnStopped += OnAutoplayDeactivated;
@@ -33,20 +32,5 @@ public class YouTubePlaylistAutoplayIndicator : MonoBehaviour {
 	void OnAutoplayTime (int secondsLeft)
 	{
 		_text.text = string.Format ("Next video in {0} sec", secondsLeft);
-	}
-
-	void OnAutoplayComplete ()
-	{
-		Debug.Log ("OnAutoplayComplete");
-	}
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 }

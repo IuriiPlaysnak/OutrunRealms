@@ -63,7 +63,6 @@ public class ToolbarButton : MonoBehaviour {
 
 	virtual public void Show() {
 
-		Debug.Log ("Show");
 		_isWaitingForHide = false;
 		gameObject.SetActive (true);
 	}
@@ -79,7 +78,6 @@ public class ToolbarButton : MonoBehaviour {
 	}
 
 	virtual protected void Diactivate() {
-		Debug.Log ("Hide");
 		gameObject.SetActive (false);
 	}
 }
