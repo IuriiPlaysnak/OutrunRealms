@@ -676,7 +676,7 @@ GameObject:
   - component: {fileID: 114460541912719366}
   - component: {fileID: 114088255302039928}
   m_Layer: 0
-  m_Name: NewsCanv
+  m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1749,7 +1749,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1931497877231636}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6028abae28d1dec468644c0494138573, type: 3}
+  m_Script: {fileID: 11500000, guid: 4cd87d8f6adbc2e43a52a125add02d05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _display: {fileID: 114982527912513122}

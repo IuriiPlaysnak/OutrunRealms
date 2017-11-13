@@ -2,14 +2,8 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Realm\Scripts\YouTubePlaylist.cs">
     <Files>
-      <File FileName="Assets\Realm\Scripts\Toolbar\ToolbarWithStaticButtons.cs" Line="1" Column="1" />
-      <File FileName="Assets\Realm\Scripts\Toolbar\ToolbarButton.cs" Line="1" Column="1" />
-      <File FileName="Assets\Realm\Scripts\Toolbar\Toolbar.cs" Line="1" Column="1" />
-      <File FileName="Assets\Realm\Scripts\UI\DashboardCard.cs" Line="1" Column="1" />
-      <File FileName="Assets\Realm\Scripts\Toolbar\ToolbarWithMovingButtons.cs" Line="1" Column="1" />
-      <File FileName="Assets\Realm\Scripts\Gallery\OutrunGallery.cs" Line="1" Column="1" />
-      <File FileName="Assets\Realm\Scripts\Data\ResourceManager.cs" Line="36" Column="20" />
-      <File FileName="Assets\Realm\Scripts\YouTubePlaylist.cs" Line="56" Column="2" />
+      <File FileName="Assets\Realm\Scripts\Gallery\RealmGallery.cs" Line="6" Column="26" />
+      <File FileName="Assets\Realm\Scripts\YouTubePlaylist.cs" Line="101" Column="9" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

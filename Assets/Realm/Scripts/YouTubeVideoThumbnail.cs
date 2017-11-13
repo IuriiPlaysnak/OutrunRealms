@@ -47,16 +47,6 @@ public class YouTubeVideoThumbnail : MonoBehaviour {
 		_display.texture = texture;
 	}
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
 	public struct Data {
 
 		public int videoIndexInPlaylist;

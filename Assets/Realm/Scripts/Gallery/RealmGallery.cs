@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class OutrunGallery : MonoBehaviour {
+public class RealmGallery : MonoBehaviour {
 	
 	[SerializeField]
 	private RawImage _display;
