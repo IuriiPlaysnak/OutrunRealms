@@ -5,7 +5,7 @@ using UnityEngine.Video;
 using YoutubeLight;
 using SimpleJSON;
 
-public class YouTubePlayback : MonoBehaviour {
+public class RealmYouTubePlayback : MonoBehaviour {
 
 	public string videoId = "bc0sJvtKrRM";
 	public VideoQuality videoQuality;

@@ -17,7 +17,7 @@ public class RealmYouTubeVideoPlayer : MonoBehaviour {
 	public event System.Action OnPause;
 	public event System.Action OnComplete;
 
-	private YouTubePlayback _playback;
+	private RealmYouTubePlayback _playback;
 	private YoutubeAPIManager _youtubeManager;
 	private RealmInteractiveItem _interaction;
 
@@ -25,7 +25,7 @@ public class RealmYouTubeVideoPlayer : MonoBehaviour {
 
 		_interaction = gameObject.GetComponent<RealmInteractiveItem> ();
 
-		_playback = gameObject.GetComponentInChildren<YouTubePlayback> ();
+		_playback = gameObject.GetComponentInChildren<RealmYouTubePlayback> ();
 		Debug.Assert (_playback != null, "Playback is missing");
 
 		_youtubeManager = gameObject.GetComponent<YoutubeAPIManager> ();

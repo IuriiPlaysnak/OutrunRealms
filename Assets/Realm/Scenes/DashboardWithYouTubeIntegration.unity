@@ -209,12 +209,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 1151302358983858, guid: 54a4e3f261b06b549898c57697b5a679, type: 2}
-      propertyPath: m_Name
-      value: RealmDashboard
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114034694355177136, guid: 54a4e3f261b06b549898c57697b5a679, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 54a4e3f261b06b549898c57697b5a679, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &524657024

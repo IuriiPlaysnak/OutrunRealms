@@ -442,7 +442,6 @@ GameObject:
   - component: {fileID: 224141408898989100}
   - component: {fileID: 223333555786994052}
   - component: {fileID: 114131047091760820}
-  - component: {fileID: 114034694355177136}
   m_Layer: 0
   m_Name: VideoCanvas
   m_TagString: Untagged
@@ -1386,22 +1385,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114034694355177136
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1556454683772306}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
 --- !u!114 &114044496712064764
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1537,7 +1520,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playlistUrl: 
   _maxNumberOfItemsInPlaylist: 10
-  _videoCard: {fileID: 114905040126912008}
+  _player: {fileID: 114905040126912008}
   _thumbnails:
   - {fileID: 114293841610831026}
   - {fileID: 114291195485300192}
