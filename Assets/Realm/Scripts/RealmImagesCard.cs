@@ -90,6 +90,8 @@ public class RealmImagesCard : MonoBehaviour {
 
 	void OnMoveOver (RaycastHit hit)
 	{
+		_autoplay.Pause ();
+
 		Vector3 localColliderSize;
 		Vector3 localHitPoint;
 
