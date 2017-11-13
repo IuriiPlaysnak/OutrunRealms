@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class YouTubePlaylistAutoplayIndicator : MonoBehaviour {
+public class RealmAutoplayIndicator : MonoBehaviour {
 
 	private UnityEngine.UI.Text _text;
 

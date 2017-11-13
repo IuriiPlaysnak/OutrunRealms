@@ -19,9 +19,6 @@ public class ImagesCard : MonoBehaviour {
 	[SerializeField]
 	private GameObject _description;
 
-	[SerializeField]
-	private UnityEngine.UI.Text _autoplayTime;
-
 	private RealmGallery _gallery;
 	private RealmAutoplayController _autoplay;
 
@@ -79,17 +76,11 @@ public class ImagesCard : MonoBehaviour {
 		}
 
 		_autoplay.OnComplete += OnAutoplayComplete;
-		_autoplay.OnTime += OnAutoplayTimeUpdate;
 	}
 
 	void OnGalleryImageLoaded ()
 	{
 		_autoplay.Start ();
-	}
-
-	void OnAutoplayTimeUpdate (int secondsLeft)
-	{
-		_autoplayTime.text = string.Format ("Next image in {0} sec", secondsLeft);
 	}
 
 	void OnAutoplayComplete ()
