@@ -9,7 +9,7 @@ public class RealmGazeController : MonoBehaviour {
 	private GameObject _headAnchor;
 
 	[SerializeField]
-	private OutrunGazeCursor _cursor;
+	private RealmGazeCursor _cursor;
 
 	private const float CLICK_TIMER = 0.5f;
 
@@ -59,12 +59,12 @@ public class RealmGazeController : MonoBehaviour {
 			}
 
 			if (_lastInteraction.doShowCursor == false) {
-				_cursor.UpdateMode (OutrunGazeCursor.Mode.INVISIBLE);
+				_cursor.UpdateMode (RealmGazeCursor.Mode.INVISIBLE);
 				return;
 			}
 
 			if(_lastInteraction.isClickable == false) {
-				_cursor.UpdateMode (OutrunGazeCursor.Mode.NORMAL);
+				_cursor.UpdateMode (RealmGazeCursor.Mode.NORMAL);
 				return;
 			}
 
@@ -77,7 +77,7 @@ public class RealmGazeController : MonoBehaviour {
 
 				} else {
 
-					_cursor.UpdateMode (OutrunGazeCursor.Mode.TIMER);
+					_cursor.UpdateMode (RealmGazeCursor.Mode.TIMER);
 
 					_focusTimer -= Time.deltaTime;
 
@@ -86,7 +86,7 @@ public class RealmGazeController : MonoBehaviour {
 						_isFocusConsumed = true;
 						_focusTimer = 0f;
 						Click (_lastInteraction);
-						_cursor.UpdateMode (OutrunGazeCursor.Mode.NORMAL);
+						_cursor.UpdateMode (RealmGazeCursor.Mode.NORMAL);
 					}
 				}
 
@@ -95,7 +95,7 @@ public class RealmGazeController : MonoBehaviour {
 
 		} else {
 
-			_cursor.UpdateMode (OutrunGazeCursor.Mode.NORMAL);
+			_cursor.UpdateMode (RealmGazeCursor.Mode.NORMAL);
 			_cursor.transform.position = _headAnchor.transform.position + _headAnchor.transform.forward * 10f;
 			_cursor.transform.rotation = Quaternion.LookRotation (_cursor.transform.position - _headAnchor.transform.position);
 

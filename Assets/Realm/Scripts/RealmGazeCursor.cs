@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OutrunGazeCursor : MonoBehaviour {
+public class RealmGazeCursor : MonoBehaviour {
 
 	[SerializeField]
 	private GameObject _normal;
