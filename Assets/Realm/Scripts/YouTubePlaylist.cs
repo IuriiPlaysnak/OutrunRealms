@@ -35,49 +35,12 @@ public class YouTubePlaylist : MonoBehaviour {
 		if (_youtubeManager == null)
 			_youtubeManager = gameObject.AddComponent<YoutubeAPIManager> ();
 
-		foreach (var thumbnail in _thumbnails) {
-			thumbnail.OnClick += OnThumbnailClick;
-		}
-
-		_videoCard.OnPause += OnVideoPause;
-		_videoCard.OnComplete += OnVideoComplete;
-		_videoCard.OnPlay += OnVideoPlay;
-
 		_autoplay = gameObject.GetComponent<AutoplayController> ();
 		if (_autoplay != null) {
 
 			_autoplay = gameObject.AddComponent<AutoplayController> ();
 			_autoplay.delay = DEFAULT_AUTOPLAY_DELAY;
 		}
-
-		_autoplay.OnComplete += OnAutoplayComplete;
-	}
-
-	void OnAutoplayComplete ()
-	{
-		PlayNextVideo ();
-	}
-
-	void OnVideoComplete ()
-	{
-		_thumbnailsCanvas.enabled = true;
-		_autoplay.Start ();
-	}
-
-	void OnVideoPlay ()
-	{
-		_thumbnailsCanvas.enabled = false;
-		_autoplay.Stop ();
-	}
-
-	void OnVideoPause ()
-	{
-		_thumbnailsCanvas.enabled = true;
-	}
-
-	void OnThumbnailClick (YouTubeVideoThumbnail.Data data)
-	{
-		PlayVideo (data.videoIndexInPlaylist);
 	}
 
 	void Start () {
@@ -90,7 +53,7 @@ public class YouTubePlaylist : MonoBehaviour {
 		_youtubeManager.GetPlaylistItems (
 			YouTubeUtils.GetPlaylistIdFromUrl (url)
 			, _maxNumberOfItemsInPlaylist
-			, OnListData
+			, OnListDataLoaded
 		);
 	}
 
@@ -103,7 +66,7 @@ public class YouTubePlaylist : MonoBehaviour {
 		}
 	}
 
-	private void OnListData(YoutubePlaylistItems[] playlistItems) {
+	private void OnListDataLoaded(YoutubePlaylistItems[] playlistItems) {
 
 		_playlistItems = playlistItems;
 		PlayVideo (0);
@@ -134,5 +97,49 @@ public class YouTubePlaylist : MonoBehaviour {
 
 			nextItemIndex++;
 		}
+	}
+
+	private bool _isInteractionsInitialized;
+	private void InitInteractions() {
+
+		if (_isInteractionsInitialized)
+			return;
+
+		foreach (var thumbnail in _thumbnails) {
+			thumbnail.OnClick += OnThumbnailClick;
+		}
+
+		_videoCard.OnPause += OnVideoPause;
+		_videoCard.OnComplete += OnVideoComplete;
+		_videoCard.OnPlay += OnVideoPlay;
+
+		_autoplay.OnComplete += OnAutoplayComplete;
+	}
+
+	void OnAutoplayComplete ()
+	{
+		PlayNextVideo ();
+	}
+
+	void OnVideoComplete ()
+	{
+		_thumbnailsCanvas.enabled = true;
+		_autoplay.Start ();
+	}
+
+	void OnVideoPlay ()
+	{
+		_thumbnailsCanvas.enabled = false;
+		_autoplay.Stop ();
+	}
+
+	void OnVideoPause ()
+	{
+		_thumbnailsCanvas.enabled = true;
+	}
+
+	void OnThumbnailClick (YouTubeVideoThumbnail.Data data)
+	{
+		PlayVideo (data.videoIndexInPlaylist);
 	}
 }
