@@ -731,8 +731,6 @@ GameObject:
   - component: {fileID: 224685230801375124}
   - component: {fileID: 223870824000146022}
   - component: {fileID: 114078257795359138}
-  - component: {fileID: 114303172466833020}
-  - component: {fileID: 111623789487823756}
   m_Layer: 0
   m_Name: VideoPanelCanvas
   m_TagString: Untagged
@@ -866,7 +864,6 @@ GameObject:
   m_Component:
   - component: {fileID: 224463525852525658}
   - component: {fileID: 222200631959181868}
-  - component: {fileID: 114331548639899918}
   m_Layer: 0
   m_Name: Frame
   m_TagString: Untagged
@@ -1320,21 +1317,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!111 &111623789487823756
-Animation:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1842169023494424}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: fc7dea89693f12c45bdde741d9d1dc66, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: fc7dea89693f12c45bdde741d9d1dc66, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 0
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!114 &114031033942901438
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1779,22 +1761,6 @@ MonoBehaviour:
     m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: Outrun Released in Early Access!
---- !u!114 &114303172466833020
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1842169023494424}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
 --- !u!114 &114317721377122052
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1835,7 +1801,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   canvasDimensions: {fileID: 224685230801375124}
-  _flipAnimation: {fileID: 111623789487823756}
+  _flipAnimation: {fileID: 0}
 --- !u!114 &114329619601388696
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1851,33 +1817,6 @@ MonoBehaviour:
   _buttons:
   - {fileID: 114392187047783026}
   - {fileID: 114031033942901438}
---- !u!114 &114331548639899918
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1924897457274238}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
 --- !u!114 &114366669430506022
 MonoBehaviour:
   m_ObjectHideFlags: 1

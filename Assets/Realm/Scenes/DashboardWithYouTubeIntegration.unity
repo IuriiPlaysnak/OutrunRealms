@@ -394,11 +394,13 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 1320518188404604, guid: a997075da9f034f48abc88e75487d6f5, type: 2}
-      propertyPath: m_Name
-      value: RealmDashboard
+    - target: {fileID: 114320843540118054, guid: a997075da9f034f48abc88e75487d6f5,
+        type: 2}
+      propertyPath: _flipAnimation
+      value: 
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114331548639899918, guid: a997075da9f034f48abc88e75487d6f5, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: a997075da9f034f48abc88e75487d6f5, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1963452270
