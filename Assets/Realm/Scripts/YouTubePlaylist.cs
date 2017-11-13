@@ -18,9 +18,6 @@ public class YouTubePlaylist : MonoBehaviour {
 	private YouTubeVideoPlayer _videoCard;
 
 	[SerializeField]
-	private Canvas _thumbnailsCanvas;
-
-	[SerializeField]
 	private List<YouTubeVideoThumbnail> _thumbnails;
 
 	private YoutubeAPIManager _youtubeManager;
@@ -45,6 +42,7 @@ public class YouTubePlaylist : MonoBehaviour {
 
 	void Start () {
 
+		SetThumbnailsVisibility (false);
 		_autoplay.Stop ();
 		AfterDataLoadedInit = InitInteractions;
 	}
@@ -126,23 +124,30 @@ public class YouTubePlaylist : MonoBehaviour {
 
 	void OnVideoComplete ()
 	{
-		_thumbnailsCanvas.enabled = true;
+		SetThumbnailsVisibility (true);
 		_autoplay.Start ();
 	}
 
 	void OnVideoPlay ()
 	{
-		_thumbnailsCanvas.enabled = false;
+		SetThumbnailsVisibility (false);
 		_autoplay.Stop ();
 	}
 
 	void OnVideoPause ()
 	{
-		_thumbnailsCanvas.enabled = true;
+		SetThumbnailsVisibility (true);
 	}
 
 	void OnThumbnailClick (YouTubeVideoThumbnail.Data data)
 	{
 		PlayVideo (data.videoIndexInPlaylist);
+	}
+
+	private void SetThumbnailsVisibility(bool isVisible) {
+
+		foreach (var thumbnail in _thumbnails) {
+			thumbnail.gameObject.SetActive (isVisible);
+		}
 	}
 }
