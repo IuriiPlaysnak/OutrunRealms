@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 114804163321027876}
   - component: {fileID: 114300615649909578}
   m_Layer: 0
-  m_Name: OutrunRealmManager
+  m_Name: RealmManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -183,7 +183,7 @@ GameObject:
   - component: {fileID: 114466582896242686}
   - component: {fileID: 114907376762336702}
   m_Layer: 0
-  m_Name: OutrunOVRCameraRig
+  m_Name: RealmOVRCameraRig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
